@@ -1,8 +1,20 @@
-I've worked in IT for quite some time and have liked many facets of it, from being a freelance technician to becoming an IT support specialist.
-I didn't get my own personal computer till I was approximately 16, first world problems:) But once I did, I quickly infected it with viruses, 
-and attempting to repair it lead me down this route.
+<head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.10.1/devicon.min.css"></head>
+<body>
+
+# Kristian Colville
+<p>I'm a Full Stack Developer and Code Institute, student. After finishing my last occupation as a Technical Support Specialist, I'm currently freelancing as an IT Technician. As the month's pass, I hope to progress further in this specific field that I am studying and striving to achieve.</p>
+
+<p>Please feel free to explore my repositories and have a look at the technologies I use below.</p>
+
+## Programming Languages
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="10%" height="10%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="10%" height="10%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="10%" height="10%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" width="10%" height="10%">
 
 
-At the moment, I'm enrolled in Code Institute's QQI level 6 Diploma in Full Stack Software Development program.
+</body>
 
-I look forward to the journey ahead, check out my repository and see what I am up to!
