@@ -1,8 +1,8 @@
 # Hi there!
-
+<br>
 ## Who am I?
-* I'm a Full-Stack Software Developer and Code Institute Student.
-* A lover of Sci-fi.
+* I'm a Full-Stack Software Developer and Code Institute Student
+* A lover of Sci-fi
 * Biscuit enthusiast
 * A hard worker :)
 
