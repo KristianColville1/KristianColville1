@@ -1,10 +1,10 @@
 # Hi there!
 <br>
 ## Who am I?
-- I'm a Full-Stack Software Developer and Code Institute Student.
-- A lover of Sci-fi.
-- Biscuit enthusiast
-- A hard worker :)
+* I'm a Full-Stack Software Developer and Code Institute Student.
+* A lover of Sci-fi.
+* Biscuit enthusiast
+* A hard worker :)
 <br>
 <p>Please feel free to explore my repositories and have a look at the technologies I use below.</p>
 
