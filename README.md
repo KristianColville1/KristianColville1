@@ -10,5 +10,5 @@ I'm currently working hard at completing my qualification with Code Institute. P
 <img src="https://img.shields.io/badge/HTML5-brightgreen"><img src="https://img.shields.io/badge/CSS3-red"><img src="https://img.shields.io/badge/JavaScript-purple"><img src="https://img.shields.io/badge/Python-blue"><img src="https://img.shields.io/badge/Markdown-darkblue">
 
 ### Tools:
-<img src="https://img.shields.io/badge/Git-red"><img src="https://img.shields.io/badge/GitHub-yellow"><img src="https://img.shields.io/badge/Visual_Studio_Code-brightgreen">
+<img src="https://img.shields.io/badge/Git-red"><img src="https://img.shields.io/badge/GitHub-yellow"><img src="https://img.shields.io/badge/GitPod-blue"><img src="https://img.shields.io/badge/Visual_Studio_Code-brightgreen">
 
