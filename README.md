@@ -5,9 +5,9 @@ I'm Kristian Colville.
 
 I'm currently working hard at completing my qualification with [Code Institute](https://codeinstitute.net/) and completing multiple MTA Certificates.
 
-When I was in school I honestly did not know what I wanted to pursue career-wise & I never put in any effort in school either. I was too busy floating around as a teenager with my buddies living life to its fullest (or so I thought). I believed I'd find my way eventually.
+When I was in school I honestly did not know what I wanted to pursue career-wise & I never put in any effort in school either. I used to do my homework just before class started. I was too busy floating around as a teenager with my buddies living life to its fullest (or so I thought). I believed I'd find my way eventually and I suppose in a sense I have.
 
-I have had many job titles and always refer to myself as a jack of all trades, always left on good terms and worked hard. Most of the jobs I have worked in always left me feeling at some point miserable because they were highly repetitive or involved little to no problem-solving. I needed to find a role that tested me, one where I could problem solve and be creative.
+I have had many job titles and always refer to myself as a jack of all trades, always left on good terms and worked hard. I'm grateful for every opportunity I have received. However, most of the jobs I have worked in always left me feeling down at some point because they were highly repetitive or involved little to no problem-solving. I needed to find a role that tested me, one where I could problem solve and be creative.
 
 I got interested in making games with the Unreal engine after a friend suggested having a look at it & that's where I discovered programming in general with the C++ language. I knew that I needed to learn how to program correctly but couldn't find a suitable course of study within my area.
 
