@@ -3,7 +3,7 @@ Hi,
 
 I'm Kristian Colville.
 
-I'm currently working hard at completing my qualification with [Code Institute](https://codeinstitute.net/) and completing multiple MTA Certificates.
+I'm currently working hard at completing my qualification with [Code Institute](https://codeinstitute.net/) and completing multiple [MTA  Certificates](https://support.microsoft.com/en-us/topic/earn-a-microsoft-technology-associate-mta-certification-357215d0-31ce-0620-feba-1bb60165b770).
 
 When I was in school I honestly did not know what I wanted to pursue career-wise & I never put in any effort in school either. I used to do my homework just before class started. I was too busy floating around as a teenager with my buddies living life to its fullest (or so I thought). I believed I'd find my way eventually and I suppose in a sense I have.
 
@@ -19,7 +19,7 @@ I had previously been working as an IT Support Specialist & I decided to return 
 <div align="center">
 
 # Stack
-<div align="center" style="width: 50%; height: 200px; background-color: white; color: black; font-size: 1.5rem; border-radius: 15%; border: 3px solid black;">
+<div align="center">
 
 ### Frontend
 
@@ -29,16 +29,16 @@ I had previously been working as an IT Support Specialist & I decided to return 
 <img src="assets/images/icons/bootstrap.png">
 </div>
 
-<div align="center" style="width: 50%; height: 200px; background-color: #a6f4dcff; color: black; font-size: 1.5rem; border-radius: 15%; border: 3px solid black;">
+<div align="center">
 
 ### Backend
 
 <img src="assets/images/icons/python.png">
-<img src="assets/images/icons/django.png">
+<img src="assets/images/icons/django.png" style="background-color: white;">
 
 </div>
 
-<div align="center" style="width: 50%; height: 200px; background-color: pink; color: black; font-size: 1.5rem; border-radius: 15%; border: 3px solid black;">
+<div align="center">
 
 ### Database
 
