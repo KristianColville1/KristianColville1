@@ -12,3 +12,4 @@ I'm currently working hard at completing my qualification with Code Institute. P
 ### Tools:
 <img src="https://img.shields.io/badge/Git-red"><img src="https://img.shields.io/badge/GitHub-yellow"><img src="https://img.shields.io/badge/GitPod-blue"><img src="https://img.shields.io/badge/Visual_Studio_Code-brightgreen">
 
+[![trophy](https://github-profile-trophy.vercel.app/?KristianColville1=ryo-ma)](https://github.com/ryo-ma/github-profile-trophy)
