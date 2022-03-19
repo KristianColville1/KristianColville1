@@ -13,7 +13,7 @@ I'm currently working hard at completing my qualification with Code Institute. P
 <img src="https://img.shields.io/badge/Git-red"><img src="https://img.shields.io/badge/GitHub-yellow"><img src="https://img.shields.io/badge/GitPod-blue"><img src="https://img.shields.io/badge/Visual_Studio_Code-brightgreen">
 
 ## Statisics:
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=KristianColville1)](https://github.com/KristianColville1/github-readme-stats)
+![Krisitians's GitHub stats](https://github-readme-stats.vercel.app/api?username=KristianColville1&show_icons=true&theme=radical)
 
 ## Trophies:
 [![trophy](https://github-profile-trophy.vercel.app/?username=KristianColville1&theme=onedark)](https://github.com/KristianColville1/github-profile-trophy)
