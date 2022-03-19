@@ -46,6 +46,7 @@ I had previously been working as an IT Support Specialist & I decided to return 
 
 </div>
 </div>
+
 ## **Development and Deployment**
 
 <img src="https://img.shields.io/badge/Git-black?style=for-the-badge&logo=git"><img src="https://img.shields.io/badge/GitHub-blue?style=for-the-badge&logo=github"><img src="https://img.shields.io/badge/GitHub_Pages-black?style=for-the-badge&logo=githubpages"><img src="https://img.shields.io/badge/VS_Code-greenyellow?style=for-the-badge&logo=visualstudiocode">
