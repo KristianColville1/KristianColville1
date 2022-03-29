@@ -1,21 +1,4 @@
-# **About me**
 
-Hi,
-
-I'm Kristian Colville.
-
-I'm currently working hard at completing my qualification with [Code Institute](https://codeinstitute.net/) and completing multiple [MTA  Certificates](https://support.microsoft.com/en-us/topic/earn-a-microsoft-technology-associate-mta-certification-357215d0-31ce-0620-feba-1bb60165b770).
-When I was in school I honestly did not know what I wanted to pursue career-wise & I never put in any effort in school either. I used to do my homework just before class started. I was too busy floating around with my buddies living life to its fullest (or so I thought). I believed I'd find my way eventually & I suppose I have.
-
-I have had many job titles and always refer to myself as a jack of all trades, always left on good terms and worked hard. I'm grateful for every opportunity I have received. However, most of the jobs I have worked in always left me feeling down at some point because they were highly repetitive or involved little to no problem-solving. I needed to find a role that tested me, one where I could problem solve and be creative.
-
-I got interested in making games with the Unreal engine after a friend suggested having a look at it & that's where I discovered programming in general with the C++ language. I knew that I needed to learn how to program correctly but couldn't find a suitable course of study within my area.
-So for around a year, I was programming on and off. I'd always get frustrated watching YouTube tutorials by amateurs.
-
-During the pandemic, I thankfully discovered Code Institute & their QQI Level 6 Diploma in Full Stack Software Development. I started the course in late November 2021. The best decision I ever made.
-I had previously been working as an IT Support Specialist & I decided to return full time to focus on my education to break into the computer science side of IT. The course will finish in November 2022. I'm eager to return to the workforce as a junior full stack developer.
-
----
 <div align="center">
 
 # Stack
