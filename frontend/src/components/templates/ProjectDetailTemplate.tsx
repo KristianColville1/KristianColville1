@@ -11,7 +11,7 @@ type ProjectDetailTemplateProps = {
 export function ProjectDetailTemplate({ project }: ProjectDetailTemplateProps) {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16" data-testid="project-detail-page">
-      <Link to="/" className="text-sm text-accent-purple hover:underline">
+      <Link to="/" className="text-sm text-violet-700 hover:underline dark:text-violet-300">
         ← Back home
       </Link>
       <Heading level={1} className="mt-4">

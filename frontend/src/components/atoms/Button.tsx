@@ -11,7 +11,7 @@ type ButtonProps = {
 const VARIANT_CLASSES: Record<NonNullable<ButtonProps['variant']>, string> = {
   primary: 'bg-accent-orange text-neutral-950 hover:bg-accent-orange/90',
   secondary:
-    'border border-accent-purple text-accent-purple hover:bg-accent-purple/10',
+    'border border-accent-purple text-violet-700 hover:bg-accent-purple/10 dark:text-violet-300',
 };
 
 export function Button({ children, variant = 'primary', href, onClick, className = '' }: ButtonProps) {

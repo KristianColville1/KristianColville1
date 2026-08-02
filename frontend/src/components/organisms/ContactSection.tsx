@@ -19,7 +19,7 @@ export function ContactSection({ links }: ContactSectionProps) {
               href={link.href}
               target={isExternal ? '_blank' : undefined}
               rel={isExternal ? 'noopener noreferrer' : undefined}
-              className="text-accent-purple hover:underline"
+              className="text-violet-700 hover:underline dark:text-violet-300"
             >
               {link.label}
             </a>

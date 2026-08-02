@@ -18,7 +18,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
         ))}
       </div>
       <div className="flex flex-wrap items-center gap-3">
-        <Link to={`/projects/${project.slug}`} className="text-sm font-medium text-accent-purple hover:underline">
+        <Link
+          to={`/projects/${project.slug}`}
+          className="text-sm font-medium text-violet-700 hover:underline dark:text-violet-300"
+        >
           Read case study
         </Link>
         {project.liveUrl && (
