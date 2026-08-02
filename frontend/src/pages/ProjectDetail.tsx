@@ -1,5 +1,6 @@
 import { useParams, Navigate } from 'react-router-dom';
 import { useProjects } from '../hooks/useProjects';
+import { ProjectDetailTemplate } from '../components/templates/ProjectDetailTemplate';
 
 export function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -10,5 +11,5 @@ export function ProjectDetail() {
     return <Navigate to="/" replace />;
   }
 
-  return <div data-testid="project-detail-page">{project.name}</div>;
+  return <ProjectDetailTemplate project={project} />;
 }
