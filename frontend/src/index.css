@@ -9,6 +9,12 @@
   --font-body: "Inter", sans-serif;
 }
 
+/* Offset anchor targets so section headings clear the ~69px sticky navbar. */
+html {
+  scroll-padding-top: 5rem;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-body);
 }

@@ -18,3 +18,10 @@ test('nav links are present for every section', async ({ page }) => {
     await expect(page.getByRole('link', { name: label })).toBeVisible();
   }
 });
+
+test('clicking a nav link scrolls the target section into view', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('link', { name: 'Projects' }).click();
+  await expect(page).toHaveURL(/#projects$/);
+  await expect(page.locator('#projects')).toBeInViewport();
+});
