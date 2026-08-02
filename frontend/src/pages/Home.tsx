@@ -4,8 +4,10 @@ import { About } from '../components/organisms/About';
 import { SkillsGrid } from '../components/organisms/SkillsGrid';
 import { ProjectsSection } from '../components/organisms/ProjectsSection';
 import { CertificationsSection } from '../components/organisms/CertificationsSection';
+import { AchievementsSection } from '../components/organisms/AchievementsSection';
 import { bio } from '../content/bio';
 import { skillGroups } from '../content/skills';
+import { achievements } from '../content/achievements';
 import { useProjects } from '../hooks/useProjects';
 import { useCertifications } from '../hooks/useCertifications';
 
@@ -21,6 +23,7 @@ export function Home() {
       <SkillsGrid groups={skillGroups} />
       <ProjectsSection projects={projects} />
       <CertificationsSection certifications={certifications} />
+      <AchievementsSection achievements={achievements} />
     </div>
   );
 }
