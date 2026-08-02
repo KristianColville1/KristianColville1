@@ -1,32 +1,19 @@
-# React + TypeScript + Vite
+# Portfolio — frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio site for Kristian Colville, software engineer.
 
-Currently, two official plugins are available:
+Built with React, Vite, TypeScript and Tailwind CSS v4. Dark-mode-first, with
+components organised by atomic design (atoms / molecules / organisms /
+templates) and documented in Storybook.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Commands
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+| Command                   | Description                                  |
+| ------------------------- | -------------------------------------------- |
+| `npm run dev`             | Start the dev server on http://localhost:5173 |
+| `npm run build`           | Type-check and build for production           |
+| `npm run preview`         | Preview the production build locally          |
+| `npm run storybook`       | Run Storybook on http://localhost:6006        |
+| `npm run build-storybook` | Build the static Storybook                    |
+| `npm run test:e2e`        | Run the Playwright end-to-end tests           |
+| `npm run lint`            | Lint with Oxlint                              |
