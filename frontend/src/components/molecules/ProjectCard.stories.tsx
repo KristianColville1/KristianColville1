@@ -11,12 +11,13 @@ export default meta;
 
 type Story = StoryObj<typeof ProjectCard>;
 
-export const WithLiveDemo: Story = {
+export const WithLiveDemoAndRepo: Story = {
   args: {
     project: {
       slug: 'sample-project-one',
       name: 'Sample Project One',
       pitch: 'A placeholder project pitch.',
+      category: 'personal',
       stack: ['React', 'TypeScript'],
       liveUrl: 'https://example.com',
       repoUrl: 'https://github.com/kristiancolville1/sample-project-one',
@@ -31,8 +32,23 @@ export const WithoutLiveDemo: Story = {
       slug: 'sample-project-two',
       name: 'Sample Project Two',
       pitch: 'A second placeholder project pitch.',
+      category: 'personal',
       stack: ['Python', 'PostgreSQL'],
       repoUrl: 'https://github.com/kristiancolville1/sample-project-two',
+      caseStudy: { problem: '', approach: '', decisions: '', outcome: '' },
+    },
+  },
+};
+
+export const WithoutRepo: Story = {
+  args: {
+    project: {
+      slug: 'churchcamlive',
+      name: 'ChurchCamLive.ie',
+      pitch: 'Live-streaming and archiving platform for churches.',
+      category: 'client',
+      stack: ['PHP', 'React', 'Linux', 'WebRTC'],
+      liveUrl: 'https://churchcamlive.ie',
       caseStudy: { problem: '', approach: '', decisions: '', outcome: '' },
     },
   },

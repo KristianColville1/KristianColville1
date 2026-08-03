@@ -2,9 +2,10 @@ export type Project = {
   slug: string;
   name: string;
   pitch: string;
+  category: 'client' | 'personal';
   stack: string[];
   liveUrl?: string;
-  repoUrl: string;
+  repoUrl?: string;
   caseStudy: {
     problem: string;
     approach: string;

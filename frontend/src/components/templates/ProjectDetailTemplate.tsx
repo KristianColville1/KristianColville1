@@ -28,9 +28,11 @@ export function ProjectDetailTemplate({ project }: ProjectDetailTemplateProps) {
             Live demo
           </Button>
         )}
-        <Button href={project.repoUrl} variant="secondary">
-          GitHub
-        </Button>
+        {project.repoUrl && (
+          <Button href={project.repoUrl} variant="secondary">
+            GitHub
+          </Button>
+        )}
       </div>
 
       <section className="mt-10 space-y-8">

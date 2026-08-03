@@ -4,11 +4,11 @@ test('navigating from a project card opens its case study and links back', async
   await page.goto('/');
   await page.getByRole('link', { name: 'Read case study' }).first().click();
 
-  await expect(page).toHaveURL(/\/projects\/sample-project-one/);
-  await expect(page.getByRole('heading', { name: 'Sample Project One' })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'GitHub' })).toHaveAttribute(
+  await expect(page).toHaveURL(/\/projects\/churchcamlive/);
+  await expect(page.getByRole('heading', { name: 'ChurchCamLive.ie' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Live demo' })).toHaveAttribute(
     'href',
-    'https://github.com/kristiancolville1/sample-project-one',
+    'https://churchcamlive.ie',
   );
 
   await page.getByRole('link', { name: '← Back home' }).click();

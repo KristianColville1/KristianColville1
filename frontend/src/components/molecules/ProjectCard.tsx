@@ -29,9 +29,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
             Live demo
           </Button>
         )}
-        <Button href={project.repoUrl} variant="secondary">
-          GitHub
-        </Button>
+        {project.repoUrl && (
+          <Button href={project.repoUrl} variant="secondary">
+            GitHub
+          </Button>
+        )}
       </div>
     </article>
   );

@@ -7,6 +7,6 @@ test('unknown project slug redirects to home', async ({ page }) => {
 });
 
 test('known project slug stays on the project detail page', async ({ page }) => {
-  await page.goto('/projects/sample-project-one');
+  await page.goto('/projects/churchcamlive');
   await expect(page.getByTestId('project-detail-page')).toBeVisible();
 });
