@@ -15,6 +15,8 @@ export type Project = {
     problem: string;
     approach: string;
     decisions: string;
+    /** Optional: a specific obstacle worth calling out on its own. */
+    challenge?: string;
     outcome: string;
   };
 };

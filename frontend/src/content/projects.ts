@@ -89,7 +89,8 @@ export const projects: Project[] = [
       'Custom kiosk-based training and recording systems for the Garda College in Templemore — designed, built and implemented in six weeks, now under a three-year maintenance contract.',
     category: 'client',
     status: 'active',
-    stack: ['Linux', 'Chromium Kiosk', 'JavaScript', '4K Video', 'Touchscreen UI'],
+    stack: ['Linux', 'Chromium Kiosk', 'JavaScript', 'WebSockets', '4K Video', 'Touchscreen UI'],
+    logo: '/images/logos/garda.png',
     caseStudy: {
       problem:
         'The training centre was running on ageing infrastructure that no longer met how instructors needed to teach. Interrogation and behavioural training depends on instructors observing a live room, intervening at the right moment, and giving learners something to review afterwards — and the existing setup could not support that reliably.',
@@ -97,6 +98,8 @@ export const projects: Project[] = [
         'I designed the replacement system across a six-week cycle covering design, build and implementation, and the AV team put the plan into action on site — stripping out the old infrastructure and replacing it with modern equipment. Each training station runs a variant of Linux locked down to behave as a kiosk: it boots straight into Chromium against a locally hosted web application, so a terminal comes up ready to run its own training room with no desktop to get lost in. Instructors work from the stations alongside learners, with touch-to-speak controls and headsets to talk into the practice interrogation rooms and correct technique in the moment, and everything routes back to a central control room.',
       decisions:
         'Video runs locally on each station at 4K with under 200ms glass to glass, because coaching someone through an interrogation is impossible if what you are watching lags behind the room. The terminals are touchscreen only — no keyboards, no microphones — which keeps the interface deliberate and removes whole categories of misuse and support burden. Learners collect their own session recordings by plugging a USB stick into the station after a session, with trainers controlling stop and start; the machines format and isolate those sticks under Linux before writing to them, so removable media coming into a secure environment cannot carry anything in with it.',
+      challenge:
+        'The USB workflow ran straight into a wall: a browser is sandboxed away from system-level information by design, so the web app had no way to see what device had been plugged in or how a write was progressing. Showing a learner a spinner with no real state — on a touchscreen with no keyboard to fall back on — would have made the most routine part of the system feel broken. With the delivery window already tight, I put a WebSocket service on each machine that listens for USB events at the OS level and proxies that state back through localhost to the web app. The sandbox stays intact, but the frontend gets accurate device information and live download progress, so what the learner sees on the touchscreen matches what the machine is actually doing.',
       outcome:
         'The system is in service at the training centre, delivered on the six-week schedule, and the relationship continues under a three-year contract to maintain it.',
     },

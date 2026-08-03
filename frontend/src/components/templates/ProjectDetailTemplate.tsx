@@ -64,6 +64,12 @@ export function ProjectDetailTemplate({ project }: ProjectDetailTemplateProps) {
           <Heading level={3}>Key decisions</Heading>
           <p className="mt-2 text-neutral-700 dark:text-neutral-300">{project.caseStudy.decisions}</p>
         </div>
+        {project.caseStudy.challenge && (
+          <div>
+            <Heading level={3}>Notable challenge</Heading>
+            <p className="mt-2 text-neutral-700 dark:text-neutral-300">{project.caseStudy.challenge}</p>
+          </div>
+        )}
         <div>
           <Heading level={3}>Outcome</Heading>
           <p className="mt-2 text-neutral-700 dark:text-neutral-300">{project.caseStudy.outcome}</p>
