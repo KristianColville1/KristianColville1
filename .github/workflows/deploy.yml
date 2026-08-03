@@ -47,8 +47,8 @@ jobs:
 
       - name: Check required configuration
         env:
-          SITE_URL: ${{ vars.SITE_URL }}
-          BUNNY_STORAGE_ZONE: ${{ vars.BUNNY_STORAGE_ZONE }}
+          SITE_URL: ${{ secrets.SITE_URL }}
+          BUNNY_STORAGE_ZONE: ${{ secrets.BUNNY_STORAGE_ZONE }}
           BUNNY_STORAGE_PASSWORD: ${{ secrets.BUNNY_STORAGE_PASSWORD }}
         run: |
           missing=0
@@ -71,14 +71,14 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_SITE_URL: ${{ vars.SITE_URL }}
+          VITE_SITE_URL: ${{ secrets.SITE_URL }}
 
       - name: Upload to Bunny Storage
         env:
-          STORAGE_ZONE: ${{ vars.BUNNY_STORAGE_ZONE }}
+          STORAGE_ZONE: ${{ secrets.BUNNY_STORAGE_ZONE }}
           STORAGE_PASSWORD: ${{ secrets.BUNNY_STORAGE_PASSWORD }}
           # Region host, e.g. uk.storage.bunnycdn.com. Falls back to the default zone.
-          STORAGE_ENDPOINT: ${{ vars.BUNNY_STORAGE_ENDPOINT || 'storage.bunnycdn.com' }}
+          STORAGE_ENDPOINT: ${{ secrets.BUNNY_STORAGE_ENDPOINT || 'storage.bunnycdn.com' }}
         run: |
           set -euo pipefail
           cd dist
@@ -98,9 +98,8 @@ jobs:
 
       # Without this the edge keeps serving the previous build until TTL expiry.
       - name: Purge pull zone cache
-        if: ${{ vars.BUNNY_PULL_ZONE_ID != '' }}
         env:
-          PULL_ZONE_ID: ${{ vars.BUNNY_PULL_ZONE_ID }}
+          PULL_ZONE_ID: ${{ secrets.BUNNY_PULL_ZONE_ID }}
           API_KEY: ${{ secrets.BUNNY_API_KEY }}
         run: |
           set -euo pipefail
@@ -117,7 +116,7 @@ jobs:
 
       - name: Verify the deployed site responds
         env:
-          SITE_URL: ${{ vars.SITE_URL }}
+          SITE_URL: ${{ secrets.SITE_URL }}
         run: |
           set -euo pipefail
           # Give the purge a moment to propagate before smoke-testing.
