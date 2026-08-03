@@ -17,8 +17,9 @@ export type Project = {
 export type Certification = {
   name: string;
   issuer: string;
-  date: string;
+  date?: string;
   verifyUrl?: string;
+  image?: string;
 };
 
 export type Achievement = {
