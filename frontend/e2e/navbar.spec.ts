@@ -25,3 +25,20 @@ test('clicking a nav link scrolls the target section into view', async ({ page }
   await expect(page).toHaveURL(/#projects$/);
   await expect(page.locator('#projects')).toBeInViewport();
 });
+
+test('mobile viewport hides nav links behind a hamburger menu', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 800 });
+  await page.goto('/');
+
+  await expect(page.getByRole('link', { name: 'Projects' })).not.toBeVisible();
+
+  const menuButton = page.getByRole('button', { name: 'Open menu' });
+  await expect(menuButton).toBeVisible();
+  await menuButton.click();
+
+  await expect(page.getByRole('link', { name: 'Projects' })).toBeVisible();
+  await page.getByRole('link', { name: 'Projects' }).click();
+
+  await expect(page).toHaveURL(/#projects$/);
+  await expect(page.getByRole('link', { name: 'Projects' })).not.toBeVisible();
+});
