@@ -13,6 +13,7 @@ import type {
   Achievement,
   ExperienceEntry,
   SkillGroup,
+  FocusArea,
   ContactLink,
 } from '../../content/types';
 
@@ -20,6 +21,7 @@ type HomeTemplateProps = {
   headline: string;
   about: string;
   skillGroups: SkillGroup[];
+  focusAreas: FocusArea[];
   projects: Project[];
   certifications: Certification[];
   achievements: Achievement[];
@@ -31,6 +33,7 @@ export function HomeTemplate({
   headline,
   about,
   skillGroups,
+  focusAreas,
   projects,
   certifications,
   achievements,
@@ -45,7 +48,7 @@ export function HomeTemplate({
       <Navbar />
       <Hero headline={headline} />
       <About about={about} />
-      <SkillsGrid groups={skillGroups} />
+      <SkillsGrid groups={skillGroups} focusAreas={focusAreas} />
       <ProjectsSection projects={projects} />
       <CertificationsSection certifications={certifications} />
       <AchievementsSection achievements={achievements} />

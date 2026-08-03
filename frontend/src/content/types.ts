@@ -37,9 +37,22 @@ export type ExperienceEntry = {
   summary: string;
 };
 
+export type SkillLevel = 'Familiar' | 'Comfortable' | 'Proficient' | 'Expert';
+
+export type Skill = {
+  name: string;
+  usage: string;
+  level: SkillLevel;
+};
+
 export type SkillGroup = {
   title: string;
-  items: string[];
+  items: Skill[];
+};
+
+export type FocusArea = {
+  label: string;
+  percentage: number;
 };
 
 export type ContactLink = {
