@@ -10,9 +10,10 @@ test('home page renders every section in order', async ({ page }) => {
     'about',
     'skills',
     'projects',
+    'experience',
+    'education',
     'certifications',
     'achievements',
-    'experience',
     'contact',
   ]);
 });

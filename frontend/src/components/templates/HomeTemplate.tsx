@@ -3,15 +3,17 @@ import { Hero } from '../organisms/Hero';
 import { About } from '../organisms/About';
 import { SkillsGrid } from '../organisms/SkillsGrid';
 import { ProjectsSection } from '../organisms/ProjectsSection';
+import { ExperienceTimeline } from '../organisms/ExperienceTimeline';
+import { EducationTimeline } from '../organisms/EducationTimeline';
 import { CertificationsSection } from '../organisms/CertificationsSection';
 import { AchievementsSection } from '../organisms/AchievementsSection';
-import { ExperienceTimeline } from '../organisms/ExperienceTimeline';
 import { ContactSection } from '../organisms/ContactSection';
 import type {
   Project,
   Certification,
   Achievement,
   ExperienceEntry,
+  EducationEntry,
   SkillGroup,
   ContactLink,
 } from '../../content/types';
@@ -22,9 +24,10 @@ type HomeTemplateProps = {
   skillGroups: SkillGroup[];
   skillsSummary: string;
   projects: Project[];
+  experienceEntries: ExperienceEntry[];
+  educationEntries: EducationEntry[];
   certifications: Certification[];
   achievements: Achievement[];
-  experienceEntries: ExperienceEntry[];
   contactLinks: ContactLink[];
 };
 
@@ -34,9 +37,10 @@ export function HomeTemplate({
   skillGroups,
   skillsSummary,
   projects,
+  experienceEntries,
+  educationEntries,
   certifications,
   achievements,
-  experienceEntries,
   contactLinks,
 }: HomeTemplateProps) {
   return (
@@ -49,9 +53,10 @@ export function HomeTemplate({
       <About about={about} />
       <SkillsGrid groups={skillGroups} summary={skillsSummary} />
       <ProjectsSection projects={projects} />
+      <ExperienceTimeline entries={experienceEntries} />
+      <EducationTimeline entries={educationEntries} />
       <CertificationsSection certifications={certifications} />
       <AchievementsSection achievements={achievements} />
-      <ExperienceTimeline entries={experienceEntries} />
       <ContactSection links={contactLinks} />
     </div>
   );

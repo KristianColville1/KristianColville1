@@ -1,6 +1,6 @@
 import { Heading } from '../atoms/Heading';
 import { RevealSection } from '../atoms/RevealSection';
-import { AchievementCard } from '../molecules/AchievementCard';
+import { AchievementRow } from '../molecules/AchievementRow';
 import type { Achievement } from '../../content/types';
 
 type AchievementsSectionProps = {
@@ -11,11 +11,11 @@ export function AchievementsSection({ achievements }: AchievementsSectionProps) 
   return (
     <RevealSection id="achievements" className="px-6 py-16">
       <Heading level={2}>Achievements</Heading>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-6 rounded-lg border border-neutral-200 bg-neutral-50 px-6 dark:border-neutral-800 dark:bg-neutral-900">
         {achievements.map((achievement) => (
-          <AchievementCard key={achievement.name} achievement={achievement} />
+          <AchievementRow key={achievement.name} achievement={achievement} />
         ))}
-      </div>
+      </ul>
     </RevealSection>
   );
 }

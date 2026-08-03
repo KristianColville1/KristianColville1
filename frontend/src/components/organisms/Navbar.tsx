@@ -1,21 +1,33 @@
 import { useState } from 'react';
 import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
 import { NavLink } from '../molecules/NavLink';
+import { NavDropdown } from '../molecules/NavDropdown';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import { useTheme } from '../../hooks/useTheme';
 
-const SECTIONS = [
+const PRIMARY_SECTIONS = [
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
+];
+
+const BACKGROUND_SECTIONS = [
+  { id: 'experience', label: 'Experience' },
+  { id: 'education', label: 'Education' },
   { id: 'certifications', label: 'Certifications' },
   { id: 'achievements', label: 'Achievements' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'contact', label: 'Contact' },
+];
+
+const CONTACT_SECTION = { id: 'contact', label: 'Contact' };
+
+const ALL_SECTION_IDS = [
+  ...PRIMARY_SECTIONS.map((section) => section.id),
+  ...BACKGROUND_SECTIONS.map((section) => section.id),
+  CONTACT_SECTION.id,
 ];
 
 export function Navbar() {
-  const activeId = useActiveSection(SECTIONS.map((section) => section.id));
+  const activeId = useActiveSection(ALL_SECTION_IDS);
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -52,8 +64,8 @@ export function Navbar() {
             Portfolio
           </span>
         </a>
-        <div className="hidden flex-wrap items-center gap-6 md:flex">
-          {SECTIONS.map((section) => (
+        <div className="hidden items-center gap-6 md:flex">
+          {PRIMARY_SECTIONS.map((section) => (
             <NavLink
               key={section.id}
               href={`#${section.id}`}
@@ -61,13 +73,19 @@ export function Navbar() {
               active={activeId === section.id}
             />
           ))}
+          <NavDropdown label="Background" sections={BACKGROUND_SECTIONS} activeId={activeId} />
+          <NavLink
+            href={`#${CONTACT_SECTION.id}`}
+            label={CONTACT_SECTION.label}
+            active={activeId === CONTACT_SECTION.id}
+          />
           {themeToggle}
         </div>
         <div className="w-10 md:hidden" aria-hidden="true" />
       </div>
       {isMenuOpen && (
         <div className="flex flex-col gap-4 border-t border-neutral-200 px-6 py-4 md:hidden dark:border-neutral-800">
-          {SECTIONS.map((section) => (
+          {PRIMARY_SECTIONS.map((section) => (
             <NavLink
               key={section.id}
               href={`#${section.id}`}
@@ -76,6 +94,24 @@ export function Navbar() {
               onClick={closeMenu}
             />
           ))}
+          <p className="pt-1 text-[0.65rem] font-medium uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500">
+            Background
+          </p>
+          {BACKGROUND_SECTIONS.map((section) => (
+            <NavLink
+              key={section.id}
+              href={`#${section.id}`}
+              label={section.label}
+              active={activeId === section.id}
+              onClick={closeMenu}
+            />
+          ))}
+          <NavLink
+            href={`#${CONTACT_SECTION.id}`}
+            label={CONTACT_SECTION.label}
+            active={activeId === CONTACT_SECTION.id}
+            onClick={closeMenu}
+          />
           <div className="border-t border-neutral-200 pt-3 dark:border-neutral-800">{themeToggle}</div>
         </div>
       )}

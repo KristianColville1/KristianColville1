@@ -12,9 +12,14 @@ test('theme toggle switches and persists dark mode', async ({ page }) => {
   await expect(html).toHaveClass(/dark/);
 });
 
-test('nav links are present for every section', async ({ page }) => {
+test('primary nav links are present, background sections sit in the dropdown', async ({ page }) => {
   await page.goto('/');
-  for (const label of ['About', 'Skills', 'Projects', 'Certifications', 'Achievements', 'Experience', 'Contact']) {
+  for (const label of ['About', 'Skills', 'Projects', 'Contact']) {
+    await expect(page.getByRole('link', { name: label })).toBeVisible();
+  }
+
+  await page.getByRole('button', { name: 'Background' }).click();
+  for (const label of ['Experience', 'Education', 'Certifications', 'Achievements']) {
     await expect(page.getByRole('link', { name: label })).toBeVisible();
   }
 });

@@ -38,6 +38,13 @@ export type ExperienceEntry = {
   summary: string;
 };
 
+export type EducationEntry = {
+  qualification: string;
+  institution: string;
+  start: string;
+  end: string;
+};
+
 export type SkillLevel = 'Familiar' | 'Comfortable' | 'Proficient' | 'Expert';
 
 export type Skill = {

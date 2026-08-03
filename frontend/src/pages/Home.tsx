@@ -5,6 +5,7 @@ import { bio } from '../content/bio';
 import { skillGroups, skillsSummary } from '../content/skills';
 import { achievements } from '../content/achievements';
 import { experienceEntries } from '../content/experience';
+import { educationEntries } from '../content/education';
 import { contactLinks } from '../content/contact';
 
 export function Home() {
@@ -18,9 +19,10 @@ export function Home() {
       skillGroups={skillGroups}
       skillsSummary={skillsSummary}
       projects={projects}
+      experienceEntries={experienceEntries}
+      educationEntries={educationEntries}
       certifications={certifications}
       achievements={achievements}
-      experienceEntries={experienceEntries}
       contactLinks={contactLinks}
     />
   );

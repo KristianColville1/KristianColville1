@@ -23,9 +23,11 @@ export const certifications: Certification[] = [
     image: '/images/certs/mta-os-fundamentals.png',
   },
   {
-    name: 'MTA: Azure Fundamentals',
+    name: 'Microsoft Certified: Azure Fundamentals',
     issuer: 'Microsoft',
+    date: 'May 2021',
     verifyUrl:
       'https://www.certiport.com/Portal/Pages/PrintTranscriptInfo.aspx?action=Cert&id=414&cvid=B27DD93Rnx5gw6aPjo0F+g==',
+    image: '/images/certs/azure-fundamentals.png',
   },
 ];
