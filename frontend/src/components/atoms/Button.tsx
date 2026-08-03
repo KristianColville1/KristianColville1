@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { isExternalLink } from '../../lib/links';
 
 type ButtonProps = {
   children: ReactNode;
@@ -32,7 +33,7 @@ export function Button({
   const classes = `inline-flex cursor-pointer items-center gap-2 rounded-md font-medium transition-all duration-200 ${SIZE_CLASSES[size]} ${VARIANT_CLASSES[variant]} ${className}`;
 
   if (href) {
-    const isExternal = !href.startsWith('#') && !href.startsWith('mailto:');
+    const isExternal = isExternalLink(href);
     return (
       <a
         href={href}

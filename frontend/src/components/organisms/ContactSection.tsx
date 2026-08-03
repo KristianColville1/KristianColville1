@@ -1,8 +1,9 @@
-import { FiMail, FiGithub, FiLinkedin, FiLink } from 'react-icons/fi';
+import { FiMail, FiPhone, FiGithub, FiLinkedin, FiLink } from 'react-icons/fi';
 import type { IconType } from 'react-icons';
 import { Heading } from '../atoms/Heading';
 import { RevealSection } from '../atoms/RevealSection';
 import { SectionBackdrop } from '../atoms/SectionBackdrop';
+import { isExternalLink } from '../../lib/links';
 import type { ContactLink } from '../../content/types';
 
 type ContactSectionProps = {
@@ -11,6 +12,7 @@ type ContactSectionProps = {
 
 const ICONS: Record<string, IconType> = {
   Email: FiMail,
+  Phone: FiPhone,
   GitHub: FiGithub,
   LinkedIn: FiLinkedin,
 };
@@ -22,7 +24,7 @@ export function ContactSection({ links }: ContactSectionProps) {
       <Heading level={2}>Get in touch</Heading>
       <div className="mt-6 flex flex-wrap justify-center gap-6">
         {links.map((link) => {
-          const isExternal = !link.href.startsWith('mailto:');
+          const isExternal = isExternalLink(link.href);
           const Icon = ICONS[link.label] ?? FiLink;
           return (
             <a

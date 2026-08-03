@@ -1,5 +1,6 @@
-import { FiMail, FiGithub, FiLinkedin, FiLink } from 'react-icons/fi';
+import { FiMail, FiPhone, FiGithub, FiLinkedin, FiLink } from 'react-icons/fi';
 import type { IconType } from 'react-icons';
+import { isExternalLink } from '../../lib/links';
 import type { ContactLink } from '../../content/types';
 
 type FooterProps = {
@@ -8,6 +9,7 @@ type FooterProps = {
 
 const ICONS: Record<string, IconType> = {
   Email: FiMail,
+  Phone: FiPhone,
   GitHub: FiGithub,
   LinkedIn: FiLinkedin,
 };
@@ -24,10 +26,10 @@ export function Footer({ links }: FooterProps) {
 
           <nav aria-label="Contact" className="flex flex-col gap-3">
             <h2 className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-neutral-500">
-              Get in touch
+              Contact
             </h2>
             {links.map((link) => {
-              const isExternal = !link.href.startsWith('mailto:');
+              const isExternal = isExternalLink(link.href);
               const Icon = ICONS[link.label] ?? FiLink;
               return (
                 <a

@@ -86,20 +86,20 @@ export const projects: Project[] = [
     slug: 'martbids-streaming',
     name: 'MartBids.ie Streaming Infrastructure',
     pitch:
-      'Rebuilt live-streaming infrastructure for a livestock auction platform, plus a custom FFmpeg pipeline that repairs recordings before archiving.',
+      'Rebuilt live-streaming infrastructure for a livestock auction platform — sub-second latency at lower cost, with a probe-driven FFmpeg pipeline that repairs only the recordings that need it.',
     category: 'client',
     status: 'completed',
     stack: ['FFmpeg', 'Linux', 'S3', 'CDN', 'WebRTC'],
     liveUrl: 'https://martbids.ie',
     caseStudy: {
       problem:
-        'The existing streaming system was outdated and expensive to run. It was built entirely on WebRTC — very low latency at roughly 300ms glass to glass — but that architecture was costly and difficult to keep highly available as the platform grew.',
+        'Live auctions need sub-second latency — bidders and the ring have to stay in sync — so that was never negotiable. The existing system delivered it at roughly 300ms glass to glass, but the architecture around it was outdated, expensive to run and difficult to keep highly available as the platform grew.',
       approach:
-        'I designed and built the replacement infrastructure around cost and availability rather than chasing the lowest possible latency, which the auction use case does not require to the same degree. A second problem surfaced during the migration: newer FFmpeg releases are considerably stricter, and some recordings coming out of the new software failed on that stricter handling.',
+        'I designed and built the replacement infrastructure to hold sub-second latency while optimising what sat around it, so cost and availability improved without giving up the responsiveness the auction format depends on. A separate issue surfaced during the migration: newer FFmpeg releases handle malformed input far more strictly, and recordings that accumulated too many dropped frames failed under that stricter handling.',
       decisions:
-        'Rather than pin an old FFmpeg version and inherit that debt, I built a custom FFmpeg pipeline that cleans and repairs the affected recordings before they are shipped to S3 — fixing the artefacts at the point of processing so the archive is correct and the platform stays on current, supported tooling.',
+        'Rather than pin an old FFmpeg version and inherit the debt, or run a blanket repair pass over everything, I built the pipeline to probe each recording first and detect the anomaly. Only the affected recordings go through the cleaning and repair stage before being shipped to S3 — so the fix targets the small number of files that actually need it instead of adding processing cost and re-encoding risk to every recording the platform produces.',
       outcome:
-        'The platform runs on infrastructure that is materially cheaper and more available than the system it replaced, and recordings archive to S3 reliably through the repair pipeline.',
+        'The platform runs materially cheaper and more reliably than the system it replaced while still delivering sub-second latency, and recordings archive to S3 dependably with the repair pass engaging only where a recording is genuinely damaged.',
     },
   },
   {

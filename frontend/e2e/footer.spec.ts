@@ -10,6 +10,11 @@ test('footer lists contact details and the current copyright year', async ({ pag
   );
   await expect(footer.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute('target', '_blank');
 
+  // tel: hands off to the OS dialer — opening it in a new tab strands a blank window.
+  const phone = footer.getByRole('link', { name: 'Phone' });
+  await expect(phone).toHaveAttribute('href', 'tel:+353833937493');
+  await expect(phone).not.toHaveAttribute('target', '_blank');
+
   const year = new Date().getFullYear();
   await expect(footer.getByText(`© ${year} Kristian Colville. All rights reserved.`)).toBeVisible();
 });

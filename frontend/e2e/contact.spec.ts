@@ -6,6 +6,10 @@ test('contact section exposes working links', async ({ page }) => {
     'href',
     'mailto:kristiancolville96@gmail.com',
   );
+  const phoneLink = page.locator('#contact').getByRole('link', { name: 'Phone' });
+  await expect(phoneLink).toHaveAttribute('href', 'tel:+353833937493');
+  await expect(phoneLink).not.toHaveAttribute('target', '_blank');
+
   const githubLink = page.locator('#contact').getByRole('link', { name: 'GitHub' });
   await expect(githubLink).toHaveAttribute('href', 'https://github.com/KristianColville1');
   await expect(githubLink).toHaveAttribute('target', '_blank');
