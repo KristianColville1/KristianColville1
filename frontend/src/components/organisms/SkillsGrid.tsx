@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Heading } from '../atoms/Heading';
 import { Offcanvas } from '../atoms/Offcanvas';
 import { RevealSection } from '../atoms/RevealSection';
+import { SectionBackdrop } from '../atoms/SectionBackdrop';
 import { SkillLevelIndicator } from '../atoms/SkillLevelIndicator';
 import { SkillGroupCard } from '../molecules/SkillGroupCard';
 import type { SkillGroup } from '../../content/types';
@@ -15,7 +16,8 @@ export function SkillsGrid({ groups, summary }: SkillsGridProps) {
   const [openGroup, setOpenGroup] = useState<SkillGroup | null>(null);
 
   return (
-    <RevealSection id="skills" className="px-6 py-16">
+    <RevealSection id="skills" className="relative isolate overflow-hidden px-6 py-24">
+      <SectionBackdrop src="/images/abstract-backdrop.jpg" />
       <Heading level={2}>Skills</Heading>
       <p className="mt-4 max-w-2xl text-neutral-700 dark:text-neutral-300">{summary}</p>
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

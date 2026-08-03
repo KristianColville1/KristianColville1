@@ -1,4 +1,5 @@
 import { useEffect, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FiX } from 'react-icons/fi';
 
@@ -25,12 +26,12 @@ export function Offcanvas({ isOpen, onClose, title, children }: OffcanvasProps) 
     };
   }, [isOpen, onClose]);
 
-  return (
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <>
           <motion.div
-            className="fixed inset-0 z-40 bg-neutral-950/40"
+            className="fixed inset-0 z-[60] bg-neutral-950/40"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -40,7 +41,7 @@ export function Offcanvas({ isOpen, onClose, title, children }: OffcanvasProps) 
             role="dialog"
             aria-modal="true"
             aria-label={title}
-            className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col border-l border-neutral-200 bg-white/80 backdrop-blur-lg dark:border-neutral-800 dark:bg-neutral-950/80"
+            className="fixed inset-y-0 right-0 z-[70] flex w-full max-w-sm flex-col border-l border-neutral-200 bg-white/80 backdrop-blur-lg dark:border-neutral-800 dark:bg-neutral-950/80"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
@@ -61,6 +62,7 @@ export function Offcanvas({ isOpen, onClose, title, children }: OffcanvasProps) 
           </motion.div>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

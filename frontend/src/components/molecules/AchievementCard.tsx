@@ -6,7 +6,7 @@ type AchievementCardProps = {
 
 export function AchievementCard({ achievement }: AchievementCardProps) {
   return (
-    <div className="flex flex-col gap-3 rounded-lg border border-neutral-200 p-4 dark:border-neutral-800">
+    <div className="flex flex-col gap-3 rounded-lg border border-neutral-200 bg-neutral-50 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/10 dark:border-neutral-800 dark:bg-neutral-900">
       {achievement.image && (
         <img
           src={achievement.image}

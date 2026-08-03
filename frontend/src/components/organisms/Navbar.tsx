@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
 import { NavLink } from '../molecules/NavLink';
-import { Button } from '../atoms/Button';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import { useTheme } from '../../hooks/useTheme';
 
@@ -21,6 +20,17 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
+
+  const themeToggle = (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+      className="inline-flex items-center justify-center rounded-md p-2 text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-blue-700 dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-blue-400"
+    >
+      {theme === 'dark' ? <FiSun size={18} aria-hidden="true" /> : <FiMoon size={18} aria-hidden="true" />}
+    </button>
+  );
 
   return (
     <nav className="sticky top-0 z-50 border-b border-neutral-200 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/80">
@@ -44,10 +54,7 @@ export function Navbar() {
             />
           ))}
         </div>
-        <Button variant="secondary" onClick={toggleTheme}>
-          {theme === 'dark' ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
-          {theme === 'dark' ? 'Light mode' : 'Dark mode'}
-        </Button>
+        <div className="hidden md:block">{themeToggle}</div>
       </div>
       {isMenuOpen && (
         <div className="flex flex-col gap-4 border-t border-neutral-200 px-6 py-4 md:hidden dark:border-neutral-800">
@@ -60,6 +67,7 @@ export function Navbar() {
               onClick={closeMenu}
             />
           ))}
+          <div className="border-t border-neutral-200 pt-3 dark:border-neutral-800">{themeToggle}</div>
         </div>
       )}
     </nav>

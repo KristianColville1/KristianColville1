@@ -16,7 +16,7 @@ export function SkillLevelIndicator({ level }: SkillLevelIndicatorProps) {
           <span
             key={step}
             className={`h-1.5 w-6 rounded-full ${
-              index < filled ? 'bg-accent-purple' : 'bg-neutral-200 dark:bg-neutral-800'
+              index < filled ? 'bg-blue-600 dark:bg-blue-500' : 'bg-neutral-200 dark:bg-neutral-800'
             }`}
           />
         ))}

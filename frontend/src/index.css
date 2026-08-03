@@ -2,7 +2,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-accent-purple: #744FC6;
   --color-accent-orange: #EF8354;
   --color-accent-mint: #85FF9E;
   --font-display: "Space Grotesk", sans-serif;

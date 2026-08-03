@@ -14,12 +14,10 @@ export function Hero({ headline }: HeroProps) {
     >
       <div className="absolute inset-0 -z-10">
         <img
-          src="/images/abstract-hero.jpg"
+          src="/images/abstract-backdrop.jpg"
           alt=""
-          className="h-full w-full scale-x-[-1] object-cover opacity-35 dark:opacity-30"
+          className="h-full w-full scale-y-[-1] object-cover opacity-35 dark:opacity-30"
         />
-        <div className="absolute -left-24 top-0 h-96 w-96 rounded-full bg-accent-purple/50 blur-3xl" />
-        <div className="absolute -right-24 top-1/3 h-96 w-96 rounded-full bg-accent-orange/40 blur-3xl" />
         <div className="absolute bottom-0 h-32 w-full bg-gradient-to-t from-white to-transparent dark:from-neutral-950" />
       </div>
       <Heading level={1}>{headline}</Heading>
