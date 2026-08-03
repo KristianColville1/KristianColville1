@@ -1,7 +1,7 @@
 import { useProjects } from '../hooks/useProjects';
 import { useCertifications } from '../hooks/useCertifications';
 import { HomeTemplate } from '../components/templates/HomeTemplate';
-import { bio } from '../content/bio';
+import { bio, headline } from '../content/bio';
 import { skillGroups, skillsSummary } from '../content/skills';
 import { achievements } from '../content/achievements';
 import { experienceEntries } from '../content/experience';
@@ -14,7 +14,7 @@ export function Home() {
 
   return (
     <HomeTemplate
-      headline={bio.headline}
+      headline={headline}
       about={bio.about}
       skillGroups={skillGroups}
       skillsSummary={skillsSummary}

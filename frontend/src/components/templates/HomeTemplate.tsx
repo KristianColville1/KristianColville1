@@ -8,6 +8,7 @@ import { EducationTimeline } from '../organisms/EducationTimeline';
 import { CertificationsSection } from '../organisms/CertificationsSection';
 import { AchievementsSection } from '../organisms/AchievementsSection';
 import { ContactSection } from '../organisms/ContactSection';
+import { Footer } from '../organisms/Footer';
 import type {
   Project,
   Certification,
@@ -16,10 +17,11 @@ import type {
   EducationEntry,
   SkillGroup,
   ContactLink,
+  Headline,
 } from '../../content/types';
 
 type HomeTemplateProps = {
-  headline: string;
+  headline: Headline;
   about: string;
   skillGroups: SkillGroup[];
   skillsSummary: string;
@@ -58,6 +60,7 @@ export function HomeTemplate({
       <CertificationsSection certifications={certifications} />
       <AchievementsSection achievements={achievements} />
       <ContactSection links={contactLinks} />
+      <Footer links={contactLinks} />
     </div>
   );
 }

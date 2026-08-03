@@ -18,7 +18,7 @@ const ICONS: Record<string, IconType> = {
 export function ContactSection({ links }: ContactSectionProps) {
   return (
     <RevealSection id="contact" className="relative isolate overflow-hidden px-6 py-24 text-center">
-      <SectionBackdrop src="/images/abstract-backdrop.jpg" flipX flipY />
+      <SectionBackdrop src="/images/abstract-backdrop.jpg" flipY />
       <Heading level={2}>Get in touch</Heading>
       <div className="mt-6 flex flex-wrap justify-center gap-6">
         {links.map((link) => {

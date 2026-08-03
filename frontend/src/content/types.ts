@@ -62,3 +62,9 @@ export type ContactLink = {
   label: string;
   href: string;
 };
+
+export type Headline = {
+  prefix: string;
+  words: string[];
+  suffix: string;
+};

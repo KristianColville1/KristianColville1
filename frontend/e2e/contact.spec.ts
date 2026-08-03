@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('contact section exposes working links', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('link', { name: 'Email' })).toHaveAttribute(
+  await expect(page.locator('#contact').getByRole('link', { name: 'Email' })).toHaveAttribute(
     'href',
     'mailto:kristiancolville96@gmail.com',
   );
