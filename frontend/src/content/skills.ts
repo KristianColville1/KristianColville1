@@ -57,4 +57,25 @@ export const skillGroups: SkillGroup[] = [
       { name: 'Agile/Scrum', usage: 'Working in sprints with a small product team.', level: 'Comfortable' },
     ],
   },
+  {
+    title: 'AI Tooling',
+    items: [
+      {
+        name: 'Claude Code',
+        usage:
+          'Agentic programming every day since the tooling emerged — iterating through solutions far faster, saving serious company time while I focus on architecture and bigger-picture flows.',
+        level: 'Expert',
+      },
+      {
+        name: 'Claude',
+        usage: 'Deeper technical reasoning, design discussions and working through trade-offs.',
+        level: 'Proficient',
+      },
+      {
+        name: 'ChatGPT',
+        usage: 'Research, boilerplate and templates — the everyday quick answers.',
+        level: 'Proficient',
+      },
+    ],
+  },
 ];
