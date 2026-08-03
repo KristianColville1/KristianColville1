@@ -12,7 +12,7 @@ export function AchievementCard({ achievement }: AchievementCardProps) {
           src={achievement.image}
           alt={achievement.name}
           loading="lazy"
-          className="h-40 w-full rounded-md object-cover"
+          className="h-56 w-full rounded-md bg-white object-contain p-3"
         />
       )}
       <h3 className="font-medium text-neutral-900 dark:text-neutral-50">{achievement.name}</h3>
