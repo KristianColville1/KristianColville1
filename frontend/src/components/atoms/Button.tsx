@@ -15,7 +15,7 @@ const VARIANT_CLASSES: Record<NonNullable<ButtonProps['variant']>, string> = {
 };
 
 export function Button({ children, variant = 'primary', href, onClick, className = '' }: ButtonProps) {
-  const classes = `inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors ${VARIANT_CLASSES[variant]} ${className}`;
+  const classes = `inline-flex cursor-pointer items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors ${VARIANT_CLASSES[variant]} ${className}`;
 
   if (href) {
     const isExternal = !href.startsWith('#') && !href.startsWith('mailto:');

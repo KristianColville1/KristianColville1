@@ -7,6 +7,7 @@ export const achievements: Achievement[] = [
     date: '2025-05',
     description:
       'Promoted from Junior Software Engineer to Software Engineer after independently learning React and Node.js and taking on significantly more responsibility across the team’s full-stack and infrastructure work.',
+    image: '/images/avss.png',
   },
   {
     name: 'Hackathon — 2nd Place',

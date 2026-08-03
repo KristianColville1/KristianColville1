@@ -15,7 +15,7 @@ import '../src/index.css';
  * the switch take effect.
  */
 const withTheme: Decorator = (Story, context) => {
-  const theme = context.globals.theme === 'light' ? 'light' : 'dark';
+  const theme = context.globals.theme === 'dark' ? 'dark' : 'light';
 
   localStorage.setItem('theme', theme);
   document.documentElement.classList.toggle('dark', theme === 'dark');
@@ -37,15 +37,15 @@ const preview: Preview = {
         title: 'Theme',
         icon: 'circlehollow',
         items: [
-          { value: 'dark', title: 'Dark' },
           { value: 'light', title: 'Light' },
+          { value: 'dark', title: 'Dark' },
         ],
         dynamicTitle: true,
       },
     },
   },
   initialGlobals: {
-    theme: 'dark',
+    theme: 'light',
   },
   decorators: [withTheme],
   parameters: {

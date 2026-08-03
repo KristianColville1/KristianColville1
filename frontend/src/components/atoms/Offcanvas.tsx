@@ -53,7 +53,7 @@ export function Offcanvas({ isOpen, onClose, title, children }: OffcanvasProps) 
                 type="button"
                 onClick={onClose}
                 aria-label="Close panel"
-                className="inline-flex items-center justify-center rounded-md p-2 text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
+                className="inline-flex cursor-pointer items-center justify-center rounded-md p-2 text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
               >
                 <FiX size={20} aria-hidden="true" />
               </button>

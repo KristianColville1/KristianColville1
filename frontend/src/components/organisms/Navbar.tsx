@@ -26,7 +26,7 @@ export function Navbar() {
       type="button"
       onClick={toggleTheme}
       aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-      className="inline-flex items-center justify-center rounded-md p-2 text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-blue-700 dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-blue-400"
+      className="inline-flex cursor-pointer items-center justify-center rounded-md p-2 text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-blue-700 dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-blue-400"
     >
       {theme === 'dark' ? <FiSun size={18} aria-hidden="true" /> : <FiMoon size={18} aria-hidden="true" />}
     </button>
@@ -34,17 +34,25 @@ export function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-neutral-200 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/80">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
         <button
           type="button"
           onClick={() => setIsMenuOpen((open) => !open)}
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
-          className="inline-flex items-center justify-center rounded-md p-2 text-neutral-700 hover:bg-neutral-100 md:hidden dark:text-neutral-300 dark:hover:bg-neutral-900"
+          className="inline-flex cursor-pointer items-center justify-center rounded-md p-2 text-neutral-700 hover:bg-neutral-100 md:hidden dark:text-neutral-300 dark:hover:bg-neutral-900"
         >
           {isMenuOpen ? <FiX size={22} aria-hidden="true" /> : <FiMenu size={22} aria-hidden="true" />}
         </button>
-        <div className="hidden flex-wrap gap-6 md:flex">
+        <a href="#hero" onClick={closeMenu} className="group leading-tight">
+          <span className="block font-display text-base font-bold text-neutral-900 transition-colors group-hover:text-blue-700 dark:text-neutral-50 dark:group-hover:text-blue-400">
+            Kristian Colville
+          </span>
+          <span className="block text-[0.65rem] font-medium uppercase tracking-[0.2em] text-blue-700 dark:text-blue-400">
+            Portfolio
+          </span>
+        </a>
+        <div className="hidden flex-wrap items-center gap-6 md:flex">
           {SECTIONS.map((section) => (
             <NavLink
               key={section.id}
@@ -53,8 +61,9 @@ export function Navbar() {
               active={activeId === section.id}
             />
           ))}
+          {themeToggle}
         </div>
-        <div className="hidden md:block">{themeToggle}</div>
+        <div className="w-10 md:hidden" aria-hidden="true" />
       </div>
       {isMenuOpen && (
         <div className="flex flex-col gap-4 border-t border-neutral-200 px-6 py-4 md:hidden dark:border-neutral-800">

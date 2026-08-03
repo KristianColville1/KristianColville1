@@ -12,7 +12,7 @@ export function SkillGroupCard({ group, onOpen }: SkillGroupCardProps) {
     <button
       type="button"
       onClick={onOpen}
-      className="flex flex-col gap-3 rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/10 dark:border-neutral-800 dark:bg-neutral-900"
+      className="flex cursor-pointer flex-col gap-3 rounded-lg border border-neutral-200 bg-neutral-50 p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/10 dark:border-neutral-800 dark:bg-neutral-900"
     >
       <div className="flex items-center justify-between">
         <h3 className="font-medium text-neutral-900 dark:text-neutral-50">{group.title}</h3>
