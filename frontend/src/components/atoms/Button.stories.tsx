@@ -20,3 +20,7 @@ export const Secondary: Story = {
 export const AsButton: Story = {
   args: { children: 'Toggle theme', variant: 'secondary' },
 };
+
+export const LargeCta: Story = {
+  args: { children: 'Get in touch', variant: 'primary', size: 'lg', href: '#contact' },
+};

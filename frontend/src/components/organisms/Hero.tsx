@@ -47,7 +47,7 @@ export function Hero({ headline }: HeroProps) {
         </span>
       </Heading>
 
-      <Button href="#contact" variant="primary" className="w-fit">
+      <Button href="#contact" variant="primary" size="lg" className="w-fit">
         Get in touch
       </Button>
     </RevealSection>
