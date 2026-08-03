@@ -35,6 +35,14 @@ export function ProjectDetailTemplate({ project }: ProjectDetailTemplateProps) {
         )}
       </div>
 
+      {project.image && (
+        <img
+          src={project.image}
+          alt={`${project.name} interface`}
+          className="mt-8 w-full rounded-lg border border-neutral-200 object-cover dark:border-neutral-800"
+        />
+      )}
+
       <section className="mt-10 space-y-8">
         <div>
           <Heading level={3}>Problem</Heading>

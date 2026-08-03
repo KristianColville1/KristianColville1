@@ -46,10 +46,7 @@ export function HomeTemplate({
   contactLinks,
 }: HomeTemplateProps) {
   return (
-    <div
-      data-testid="home-page"
-      className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100"
-    >
+    <div data-testid="home-page">
       <Navbar />
       <Hero headline={headline} />
       <About about={about} />

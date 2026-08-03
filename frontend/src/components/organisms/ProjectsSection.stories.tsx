@@ -14,18 +14,18 @@ type Story = StoryObj<typeof ProjectsSection>;
 
 export const Default: Story = { args: { projects } };
 
-export const ClientAndPersonal: Story = {
+export const WithPersonalProject: Story = {
   args: {
     projects: [
       ...projects,
       {
         slug: 'sample-personal-project',
         name: 'Sample Personal Project',
-        pitch: 'A self-directed project shown to demonstrate the Personal Projects grouping.',
+        pitch: 'Shows the Personal Projects grouping alongside client work.',
         category: 'personal',
+        status: 'completed',
         stack: ['TypeScript', 'React'],
-        liveUrl: 'https://example.com',
-        repoUrl: 'https://github.com/kristiancolville1/sample-personal-project',
+        repoUrl: 'https://github.com/KristianColville1/sample',
         caseStudy: { problem: '', approach: '', decisions: '', outcome: '' },
       },
     ],

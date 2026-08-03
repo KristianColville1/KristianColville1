@@ -3,9 +3,11 @@ export type Project = {
   name: string;
   pitch: string;
   category: 'client' | 'personal';
+  status: 'active' | 'completed';
   stack: string[];
   liveUrl?: string;
   repoUrl?: string;
+  image?: string;
   caseStudy: {
     problem: string;
     approach: string;
