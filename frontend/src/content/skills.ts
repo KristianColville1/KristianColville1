@@ -37,6 +37,8 @@ export const skillGroups: SkillGroup[] = [
     items: [
       { name: 'PostgreSQL', usage: 'Relational data storage for application backends.', level: 'Comfortable' },
       { name: 'MySQL', usage: 'Relational data storage, particularly alongside PHP/WordPress work.', level: 'Comfortable' },
+      { name: 'MongoDB', usage: 'Document storage where a flexible schema suited the data better than tables.', level: 'Comfortable' },
+      { name: 'DynamoDB', usage: 'Managed key-value storage on AWS for workloads needing scale without server management.', level: 'Familiar' },
     ],
   },
   {
