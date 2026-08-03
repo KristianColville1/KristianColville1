@@ -10,6 +10,7 @@ export const skillGroups: SkillGroup[] = [
       { name: 'JavaScript', usage: 'Core language for both React front ends and Node.js services.', level: 'Proficient' },
       { name: 'TypeScript', usage: 'Default choice for new frontend and backend work.', level: 'Proficient' },
       { name: 'PHP', usage: 'Primary language behind AV Star Systems’ client-facing applications.', level: 'Proficient' },
+      { name: 'Python', usage: 'Backend services and automation — the employee management system runs on it.', level: 'Comfortable' },
       { name: 'Java', usage: 'Used during coursework and smaller backend exercises.', level: 'Familiar' },
       { name: 'HTML5', usage: 'Foundational markup for every frontend project.', level: 'Proficient' },
       { name: 'CSS3', usage: 'Styling and layout across client and personal projects.', level: 'Proficient' },
@@ -20,16 +21,26 @@ export const skillGroups: SkillGroup[] = [
     items: [
       { name: 'React', usage: 'Learned independently to move into frontend work; used daily for client UIs.', level: 'Proficient' },
       { name: 'Node.js', usage: 'Learned alongside React; powers backend services and APIs.', level: 'Proficient' },
+      { name: 'Django', usage: 'Backend and admin layer behind the employee management system.', level: 'Comfortable' },
       { name: 'WordPress', usage: 'Built and maintained client sites earlier in my career.', level: 'Comfortable' },
     ],
   },
   {
-    title: 'Cloud & Containers',
+    title: 'Cloud & Hosting',
     items: [
-      { name: 'Docker', usage: 'Containerising services for consistent deploys.', level: 'Comfortable' },
-      { name: 'Kubernetes', usage: 'Exposure to orchestrating containerised workloads.', level: 'Familiar' },
-      { name: 'AWS', usage: 'S3-compatible storage and cloud infrastructure for client systems.', level: 'Comfortable' },
+      { name: 'AWS', usage: 'Cloud infrastructure underpinning client systems and archiving.', level: 'Comfortable' },
+      { name: 'EC2', usage: 'Linux servers running application and streaming infrastructure.', level: 'Comfortable' },
+      { name: 'S3', usage: 'Object storage for streaming recordings and long-term archives.', level: 'Comfortable' },
+      { name: 'ElastiCache', usage: 'Managed in-memory caching to keep load off the database.', level: 'Familiar' },
+      { name: 'Bunny CDN', usage: 'Edge storage and CDN delivery — this site ships to it on every push.', level: 'Comfortable' },
       { name: 'OVH', usage: 'Hosting and infrastructure for client-facing applications.', level: 'Comfortable' },
+    ],
+  },
+  {
+    title: 'Containers & Orchestration',
+    items: [
+      { name: 'Docker', usage: 'Containerising services for consistent deploys across environments.', level: 'Comfortable' },
+      { name: 'Kubernetes', usage: 'Scaling streaming and portal workloads with high availability.', level: 'Comfortable' },
     ],
   },
   {

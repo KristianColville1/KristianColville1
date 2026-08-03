@@ -33,25 +33,21 @@ The deploy workflow checks a deep link at the end and warns if this isn't set.
 
 ### 3. Add the repository configuration
 
-**Settings → Secrets and variables → Actions.**
+**Settings → Secrets and variables → Actions → Secrets.** All of these are read
+as `secrets.*` by the workflow.
 
-Variables (not sensitive):
-
-| Variable | Example | Notes |
+| Secret | Example / where to find it | Required |
 | --- | --- | --- |
-| `SITE_URL` | `https://kristiancolville.ie` | Absolute, `https://`, no trailing slash. Baked into the canonical and social-preview tags at build time. |
-| `BUNNY_STORAGE_ZONE` | `kristiancolville` | Storage zone name. |
-| `BUNNY_STORAGE_ENDPOINT` | `uk.storage.bunnycdn.com` | Optional. Defaults to `storage.bunnycdn.com` (DE). Must match the zone's region. |
-| `BUNNY_PULL_ZONE_ID` | `1234567` | Optional. Without it the cache isn't purged and the edge serves the old build until TTL. |
+| `SITE_URL` | `https://kristiancolville.ie` — absolute, `https://`, no trailing slash. Baked into the canonical and social-preview tags at build time. | Yes |
+| `BUNNY_STORAGE_ZONE` | Storage zone name, e.g. `kristiancolville`. | Yes |
+| `BUNNY_STORAGE_PASSWORD` | Storage Zone → FTP & API Access → Password. Use the **read/write** one, not read-only. | Yes |
+| `BUNNY_STORAGE_ENDPOINT` | Region host, e.g. `uk.storage.bunnycdn.com`. Defaults to `storage.bunnycdn.com` (DE) — must match the zone's region. | No |
+| `BUNNY_PULL_ZONE_ID` | Numeric ID from the pull zone's dashboard URL. | No |
+| `BUNNY_API_KEY` | Account Settings → API Access → API Key. Only used for cache purging. | No |
 
-Secrets:
-
-| Secret | Where to find it |
-| --- | --- |
-| `BUNNY_STORAGE_PASSWORD` | Storage Zone → FTP & API Access → Password |
-| `BUNNY_API_KEY` | Account Settings → API Access → API Key. Only needed for cache purging. |
-
-Use the **read/write** storage password, not the read-only one.
+Without `BUNNY_PULL_ZONE_ID` and `BUNNY_API_KEY` the deploy still succeeds — it
+skips the purge with a warning, and the edge serves the previous build until its
+cache expires.
 
 ## Why `SITE_URL` is required
 
