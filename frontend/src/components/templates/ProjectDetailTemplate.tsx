@@ -35,12 +35,20 @@ export function ProjectDetailTemplate({ project }: ProjectDetailTemplateProps) {
         )}
       </div>
 
-      {project.image && (
+      {project.image ? (
         <img
           src={project.image}
           alt={`${project.name} interface`}
           className="mt-8 w-full rounded-lg border border-neutral-200 object-cover dark:border-neutral-800"
         />
+      ) : (
+        project.logo && (
+          <img
+            src={project.logo}
+            alt={`${project.name} logo`}
+            className="mt-8 h-40 w-full rounded-lg border border-neutral-200 bg-white object-contain p-8 dark:border-neutral-800"
+          />
+        )
       )}
 
       <section className="mt-10 space-y-8">

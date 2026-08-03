@@ -10,13 +10,22 @@ type ProjectCardProps = {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="flex flex-col overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/10 dark:border-neutral-800 dark:bg-neutral-900">
-      {project.image && (
+      {project.image ? (
         <img
           src={project.image}
           alt={`${project.name} interface`}
           loading="lazy"
           className="h-44 w-full border-b border-neutral-200 object-cover object-top dark:border-neutral-800"
         />
+      ) : (
+        project.logo && (
+          <img
+            src={project.logo}
+            alt={`${project.name} logo`}
+            loading="lazy"
+            className="h-44 w-full border-b border-neutral-200 bg-white object-contain p-8 dark:border-neutral-800"
+          />
+        )
       )}
       <div className="flex flex-1 flex-col gap-4 p-6">
         <h4 className="font-display text-xl font-semibold text-neutral-900 dark:text-neutral-50">

@@ -7,7 +7,10 @@ export type Project = {
   stack: string[];
   liveUrl?: string;
   repoUrl?: string;
+  /** Screenshot, shown filling the card top. */
   image?: string;
+  /** Client mark, shown contained on a light band — for work with no shareable UI. */
+  logo?: string;
   caseStudy: {
     problem: string;
     approach: string;

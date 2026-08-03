@@ -83,6 +83,25 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: 'garda-training-systems',
+    name: 'Garda Training Centre Systems',
+    pitch:
+      'Custom kiosk-based training and recording systems for the Garda College in Templemore — designed, built and implemented in six weeks, now under a three-year maintenance contract.',
+    category: 'client',
+    status: 'active',
+    stack: ['Linux', 'Chromium Kiosk', 'JavaScript', '4K Video', 'Touchscreen UI'],
+    caseStudy: {
+      problem:
+        'The training centre was running on ageing infrastructure that no longer met how instructors needed to teach. Interrogation and behavioural training depends on instructors observing a live room, intervening at the right moment, and giving learners something to review afterwards — and the existing setup could not support that reliably.',
+      approach:
+        'I designed the replacement system across a six-week cycle covering design, build and implementation, and the AV team put the plan into action on site — stripping out the old infrastructure and replacing it with modern equipment. Each training station runs a variant of Linux locked down to behave as a kiosk: it boots straight into Chromium against a locally hosted web application, so a terminal comes up ready to run its own training room with no desktop to get lost in. Instructors work from the stations alongside learners, with touch-to-speak controls and headsets to talk into the practice interrogation rooms and correct technique in the moment, and everything routes back to a central control room.',
+      decisions:
+        'Video runs locally on each station at 4K with under 200ms glass to glass, because coaching someone through an interrogation is impossible if what you are watching lags behind the room. The terminals are touchscreen only — no keyboards, no microphones — which keeps the interface deliberate and removes whole categories of misuse and support burden. Learners collect their own session recordings by plugging a USB stick into the station after a session, with trainers controlling stop and start; the machines format and isolate those sticks under Linux before writing to them, so removable media coming into a secure environment cannot carry anything in with it.',
+      outcome:
+        'The system is in service at the training centre, delivered on the six-week schedule, and the relationship continues under a three-year contract to maintain it.',
+    },
+  },
+  {
     slug: 'martbids-streaming',
     name: 'MartBids.ie Streaming Infrastructure',
     pitch:
@@ -91,6 +110,7 @@ export const projects: Project[] = [
     status: 'completed',
     stack: ['FFmpeg', 'Linux', 'S3', 'CDN', 'WebRTC'],
     liveUrl: 'https://martbids.ie',
+    logo: '/images/logos/martbids.png',
     caseStudy: {
       problem:
         'Live auctions need sub-second latency — bidders and the ring have to stay in sync — so that was never negotiable. The existing system delivered it at roughly 300ms glass to glass, but the architecture around it was outdated, expensive to run and difficult to keep highly available as the platform grew.',
