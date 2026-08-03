@@ -1,0 +1,134 @@
+name: Deploy to Bunny.net
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+# Never let two deploys race the same storage zone.
+concurrency:
+  group: bunny-deploy
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: frontend
+
+jobs:
+  deploy:
+    name: Verify and deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      # A broken build should never reach the CDN, so the suite gates the deploy.
+      - name: Run end-to-end tests
+        run: npm run test:e2e
+
+      - name: Check required configuration
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          BUNNY_STORAGE_ZONE: ${{ vars.BUNNY_STORAGE_ZONE }}
+          BUNNY_STORAGE_PASSWORD: ${{ secrets.BUNNY_STORAGE_PASSWORD }}
+        run: |
+          missing=0
+          for name in SITE_URL BUNNY_STORAGE_ZONE BUNNY_STORAGE_PASSWORD; do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name is not configured. See docs/deployment.md."
+              missing=1
+            fi
+          done
+          # Absolute social-preview URLs are baked in at build time; shipping the
+          # localhost default would silently break every link preview.
+          if [ -n "$SITE_URL" ]; then
+            case "$SITE_URL" in
+              https://*) ;;
+              *) echo "::error::SITE_URL must be an absolute https:// URL (got '$SITE_URL')."; missing=1 ;;
+            esac
+          fi
+          exit $missing
+
+      - name: Build
+        run: npm run build
+        env:
+          VITE_SITE_URL: ${{ vars.SITE_URL }}
+
+      - name: Upload to Bunny Storage
+        env:
+          STORAGE_ZONE: ${{ vars.BUNNY_STORAGE_ZONE }}
+          STORAGE_PASSWORD: ${{ secrets.BUNNY_STORAGE_PASSWORD }}
+          # Region host, e.g. uk.storage.bunnycdn.com. Falls back to the default zone.
+          STORAGE_ENDPOINT: ${{ vars.BUNNY_STORAGE_ENDPOINT || 'storage.bunnycdn.com' }}
+        run: |
+          set -euo pipefail
+          cd dist
+
+          mapfile -t files < <(find . -type f | sed 's|^\./||')
+          echo "Uploading ${#files[@]} files to ${STORAGE_ZONE} via ${STORAGE_ENDPOINT}"
+
+          for file in "${files[@]}"; do
+            curl --fail --silent --show-error --retry 3 --retry-delay 2 \
+              --request PUT \
+              --header "AccessKey: ${STORAGE_PASSWORD}" \
+              --header "Content-Type: application/octet-stream" \
+              --data-binary "@${file}" \
+              "https://${STORAGE_ENDPOINT}/${STORAGE_ZONE}/${file}"
+            echo "  uploaded ${file}"
+          done
+
+      # Without this the edge keeps serving the previous build until TTL expiry.
+      - name: Purge pull zone cache
+        if: ${{ vars.BUNNY_PULL_ZONE_ID != '' }}
+        env:
+          PULL_ZONE_ID: ${{ vars.BUNNY_PULL_ZONE_ID }}
+          API_KEY: ${{ secrets.BUNNY_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${API_KEY}" ]; then
+            echo "::warning::BUNNY_API_KEY not set — skipping purge. The edge will serve the old build until its cache expires."
+            exit 0
+          fi
+          curl --fail --silent --show-error --retry 3 --retry-delay 2 \
+            --request POST \
+            --header "AccessKey: ${API_KEY}" \
+            --header "Content-Length: 0" \
+            "https://api.bunny.net/pullzone/${PULL_ZONE_ID}/purgeCache"
+          echo "Purged pull zone ${PULL_ZONE_ID}"
+
+      - name: Verify the deployed site responds
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          set -euo pipefail
+          # Give the purge a moment to propagate before smoke-testing.
+          sleep 10
+          status=$(curl --silent --output /dev/null --write-out '%{http_code}' --retry 5 --retry-delay 5 "${SITE_URL}/")
+          echo "GET ${SITE_URL}/ -> ${status}"
+          [ "$status" = "200" ] || { echo "::error::Site did not return 200 after deploy."; exit 1; }
+
+          # Deep links only work if the storage zone rewrites 404s to index.html.
+          deep=$(curl --silent --output /dev/null --write-out '%{http_code}' "${SITE_URL}/projects/churchcamlive")
+          echo "GET ${SITE_URL}/projects/churchcamlive -> ${deep}"
+          if [ "$deep" != "200" ]; then
+            echo "::warning::Deep links return ${deep}. Set the storage zone's custom 404 path to /index.html and enable 'Rewrite 404 to 200' — see docs/deployment.md."
+          fi

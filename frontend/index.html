@@ -12,18 +12,19 @@
     <meta name="author" content="Kristian Colville" />
     <meta name="theme-color" content="#1d4ed8" />
 
-    <!-- Open Graph / social previews.
-         og:url and og:image must be ABSOLUTE URLs for LinkedIn, Slack and X to
-         resolve them — swap the placeholder host below for the real domain at
-         deploy time, or these previews will silently fall back to plain text. -->
+    <!-- Open Graph / social previews. og:url and og:image must be ABSOLUTE for
+         LinkedIn, Slack and X to resolve them, so VITE_SITE_URL is injected at
+         build time — the deploy workflow fails rather than shipping these blank. -->
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Kristian Colville" />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
     <meta property="og:title" content="Kristian Colville — Software Engineer" />
     <meta
       property="og:description"
       content="Full-stack software engineer in Ireland turning messy technical problems into reliable systems."
     />
-    <meta property="og:image" content="/images/og-card.jpg" />
+    <meta property="og:image" content="%VITE_SITE_URL%/images/og-card.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Kristian Colville — Software Engineer, Ireland" />
@@ -35,7 +36,7 @@
       name="twitter:description"
       content="Full-stack software engineer in Ireland turning messy technical problems into reliable systems."
     />
-    <meta name="twitter:image" content="/images/og-card.jpg" />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/images/og-card.jpg" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
