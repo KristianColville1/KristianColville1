@@ -17,7 +17,7 @@ export function RevealSection({ id, children, className = '' }: RevealSectionPro
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      {children}
+      <div className="mx-auto w-full max-w-6xl">{children}</div>
     </motion.section>
   );
 }
