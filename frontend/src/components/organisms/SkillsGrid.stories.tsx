@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { SkillsGrid } from './SkillsGrid';
-import { skillGroups } from '../../content/skills';
-import { focusAreas } from '../../content/focusAreas';
+import { skillGroups, skillsSummary } from '../../content/skills';
 
 const meta: Meta<typeof SkillsGrid> = {
   title: 'Organisms/SkillsGrid',
@@ -11,4 +10,4 @@ export default meta;
 
 type Story = StoryObj<typeof SkillsGrid>;
 
-export const Default: Story = { args: { groups: skillGroups, focusAreas } };
+export const Default: Story = { args: { groups: skillGroups, summary: skillsSummary } };

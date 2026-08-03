@@ -2,8 +2,7 @@ import { useProjects } from '../hooks/useProjects';
 import { useCertifications } from '../hooks/useCertifications';
 import { HomeTemplate } from '../components/templates/HomeTemplate';
 import { bio } from '../content/bio';
-import { skillGroups } from '../content/skills';
-import { focusAreas } from '../content/focusAreas';
+import { skillGroups, skillsSummary } from '../content/skills';
 import { achievements } from '../content/achievements';
 import { experienceEntries } from '../content/experience';
 import { contactLinks } from '../content/contact';
@@ -17,7 +16,7 @@ export function Home() {
       headline={bio.headline}
       about={bio.about}
       skillGroups={skillGroups}
-      focusAreas={focusAreas}
+      skillsSummary={skillsSummary}
       projects={projects}
       certifications={certifications}
       achievements={achievements}

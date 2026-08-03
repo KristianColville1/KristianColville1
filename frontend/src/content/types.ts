@@ -50,11 +50,6 @@ export type SkillGroup = {
   items: Skill[];
 };
 
-export type FocusArea = {
-  label: string;
-  percentage: number;
-};
-
 export type ContactLink = {
   label: string;
   href: string;

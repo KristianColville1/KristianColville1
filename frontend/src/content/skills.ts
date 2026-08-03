@@ -1,5 +1,8 @@
 import type { SkillGroup } from './types';
 
+export const skillsSummary =
+  'Most of my work leans toward backend and integrations — building APIs, wiring up third-party services, and running the Linux infrastructure underneath — with solid frontend knowledge in React for when the work reaches the browser.';
+
 export const skillGroups: SkillGroup[] = [
   {
     title: 'Languages',
