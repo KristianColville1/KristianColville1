@@ -7,7 +7,7 @@ test('contact section exposes working links', async ({ page }) => {
     'mailto:kristiancolville96@gmail.com',
   );
   const githubLink = page.locator('#contact').getByRole('link', { name: 'GitHub' });
-  await expect(githubLink).toHaveAttribute('href', 'https://github.com/kristiancolville1');
+  await expect(githubLink).toHaveAttribute('href', 'https://github.com/KristianColville1');
   await expect(githubLink).toHaveAttribute('target', '_blank');
   await expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer');
 });
