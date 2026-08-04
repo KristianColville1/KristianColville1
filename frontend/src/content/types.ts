@@ -5,6 +5,8 @@ export type Project = {
   category: 'client' | 'personal';
   status: 'active' | 'completed';
   stack: string[];
+  /** Shown on the home page; everything else lives on the all-projects page. */
+  featured?: boolean;
   liveUrl?: string;
   repoUrl?: string;
   /** Screenshot, shown filling the card top. */
@@ -47,17 +49,18 @@ export type ExperienceEntry = {
 
 export type EducationEntry = {
   qualification: string;
+  /** Optional: what the qualification maps to, e.g. the NFQ level. */
+  body?: string;
   institution: string;
   start: string;
   end: string;
 };
 
-export type SkillLevel = 'Familiar' | 'Comfortable' | 'Proficient' | 'Expert';
-
 export type Skill = {
   name: string;
+  /** Kept as source material — no longer rendered since the skills cards stopped
+      opening a panel. Self-rated levels were dropped entirely. */
   usage: string;
-  level: SkillLevel;
 };
 
 export type SkillGroup = {
@@ -70,8 +73,3 @@ export type ContactLink = {
   href: string;
 };
 
-export type Headline = {
-  prefix: string;
-  words: string[];
-  suffix: string;
-};

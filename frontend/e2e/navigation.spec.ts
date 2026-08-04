@@ -20,7 +20,8 @@ test('education section lists qualifications from most recent', async ({ page })
   await page.goto('/');
   const section = page.locator('#education');
   await expect(
-    section.getByRole('heading', { name: 'QQI Level 8 Higher Diploma in Computer Science' }),
+    section.getByRole('heading', { name: 'Higher Diploma in Computer Science' }),
   ).toBeVisible();
+  await expect(section.getByText("NFQ Level 8 - Bachelor's Honours Degree Level")).toBeVisible();
   await expect(section.getByText('SETU, Waterford · 2024 — Present')).toBeVisible();
 });

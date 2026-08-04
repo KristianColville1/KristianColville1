@@ -1,10 +1,14 @@
-import type { Headline } from './types';
-
-export const headline: Headline = {
-  prefix: 'Software engineer who turns',
-  words: ['messy', 'ambiguous', 'tangled', 'inherited'],
-  suffix: 'technical problems into reliable systems.',
+export const identity = {
+  name: 'Kristian Colville',
+  role: 'Software Engineer',
+  disciplines: ['Backend', 'Real-Time Systems', 'Infrastructure', 'Integrations'],
 };
+
+export const headline =
+  'I build the streaming and recording infrastructure behind live video — from the Linux boxes and encoding pipelines up to the player it arrives in.';
+
+export const headlineSupport =
+  'Sub-second latency, 4K under 200ms glass to glass, and recordings that archive themselves.';
 
 export const bio = {
   about:

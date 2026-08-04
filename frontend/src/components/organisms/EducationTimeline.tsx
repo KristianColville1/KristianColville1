@@ -14,6 +14,9 @@ export function EducationTimeline({ entries }: EducationTimelineProps) {
         {entries.map((entry) => (
           <li key={`${entry.institution}-${entry.start}`}>
             <h3 className="font-medium text-neutral-900 dark:text-neutral-50">{entry.qualification}</h3>
+            {entry.body && (
+              <p className="text-sm text-neutral-500 dark:text-neutral-400">{entry.body}</p>
+            )}
             <p className="text-sm text-neutral-500 dark:text-neutral-400">
               {entry.institution} · {entry.start} — {entry.end}
             </p>

@@ -2,6 +2,9 @@ import type { ReactNode } from 'react';
 
 type HeadingProps = {
   level?: 1 | 2 | 3;
+  /** Visual size, when the right heading level for the document outline would
+      be the wrong size on the page. Defaults to matching the level. */
+  size?: 1 | 2 | 3;
   children: ReactNode;
   className?: string;
 };
@@ -12,10 +15,10 @@ const LEVEL_CLASSES: Record<NonNullable<HeadingProps['level']>, string> = {
   3: 'text-lg md:text-xl font-semibold',
 };
 
-export function Heading({ level = 2, children, className = '' }: HeadingProps) {
+export function Heading({ level = 2, size = level, children, className = '' }: HeadingProps) {
   const Tag = `h${level}` as 'h1' | 'h2' | 'h3';
   return (
-    <Tag className={`font-display text-neutral-900 dark:text-neutral-50 ${LEVEL_CLASSES[level]} ${className}`}>
+    <Tag className={`font-display text-neutral-900 dark:text-neutral-50 ${LEVEL_CLASSES[size]} ${className}`}>
       {children}
     </Tag>
   );

@@ -26,6 +26,21 @@
   }
 }
 
+/* One focus treatment for everything interactive. The UA default is a 1px dark
+   outline, which all but disappears on the orange CTA and on dark backgrounds,
+   so keyboard users had no reliable idea where they were. */
+.focus-ring:focus-visible,
+.hamburger-react:focus-visible {
+  outline: 2px solid var(--color-blue-600);
+  outline-offset: 2px;
+  border-radius: 0.375rem;
+}
+
+.dark .focus-ring:focus-visible,
+.dark .hamburger-react:focus-visible {
+  outline-color: var(--color-blue-300);
+}
+
 /* Offset anchor targets so section headings clear the ~69px sticky navbar. */
 html {
   scroll-padding-top: 5rem;

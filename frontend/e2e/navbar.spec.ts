@@ -15,12 +15,12 @@ test('theme toggle switches and persists dark mode', async ({ page }) => {
 test('primary nav links are present, background sections sit in the dropdown', async ({ page }) => {
   await page.goto('/');
   for (const label of ['About', 'Skills', 'Projects', 'Contact']) {
-    await expect(page.getByRole('link', { name: label })).toBeVisible();
+    await expect(page.getByRole('link', { name: label, exact: true })).toBeVisible();
   }
 
   await page.getByRole('button', { name: 'Background' }).click();
   for (const label of ['Experience', 'Education', 'Certifications', 'Achievements']) {
-    await expect(page.getByRole('link', { name: label })).toBeVisible();
+    await expect(page.getByRole('link', { name: label, exact: true })).toBeVisible();
   }
 });
 
@@ -33,7 +33,7 @@ test('logo names the site and links back to the top', async ({ page }) => {
 
 test('clicking a nav link scrolls the target section into view', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('link', { name: 'Projects' }).click();
+  await page.getByRole('link', { name: 'Projects', exact: true }).click();
   await expect(page).toHaveURL(/#projects$/);
   await expect(page.locator('#projects')).toBeInViewport();
 });
@@ -42,7 +42,7 @@ test('mobile viewport hides nav links and theme toggle behind a hamburger menu',
   await page.setViewportSize({ width: 375, height: 800 });
   await page.goto('/');
 
-  await expect(page.getByRole('link', { name: 'Projects' })).not.toBeVisible();
+  await expect(page.getByRole('link', { name: 'Projects', exact: true })).not.toBeVisible();
   await expect(page.getByRole('button', { name: /dark mode/i })).not.toBeVisible();
 
   const menuButton = page.getByRole('button', { name: 'Open menu' });
@@ -50,9 +50,9 @@ test('mobile viewport hides nav links and theme toggle behind a hamburger menu',
   await menuButton.click();
 
   await expect(page.getByRole('button', { name: /dark mode/i })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Projects' })).toBeVisible();
-  await page.getByRole('link', { name: 'Projects' }).click();
+  await expect(page.getByRole('link', { name: 'Projects', exact: true })).toBeVisible();
+  await page.getByRole('link', { name: 'Projects', exact: true }).click();
 
   await expect(page).toHaveURL(/#projects$/);
-  await expect(page.getByRole('link', { name: 'Projects' })).not.toBeVisible();
+  await expect(page.getByRole('link', { name: 'Projects', exact: true })).not.toBeVisible();
 });

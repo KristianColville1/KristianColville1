@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { FiArrowRight } from 'react-icons/fi';
 import { Heading } from '../atoms/Heading';
 import { RevealSection } from '../atoms/RevealSection';
 import { ProjectCard } from '../molecules/ProjectCard';
@@ -5,41 +7,31 @@ import type { Project } from '../../content/types';
 
 type ProjectsSectionProps = {
   projects: Project[];
+  totalCount: number;
 };
 
-const GROUPS: { title: string; match: (project: Project) => boolean }[] = [
-  {
-    title: 'Active Client Work',
-    match: (project) => project.category === 'client' && project.status === 'active',
-  },
-  {
-    title: 'Completed Client Work',
-    match: (project) => project.category === 'client' && project.status === 'completed',
-  },
-  { title: 'Personal Projects', match: (project) => project.category === 'personal' },
-];
+export function ProjectsSection({ projects, totalCount }: ProjectsSectionProps) {
+  const remaining = totalCount - projects.length;
 
-export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <RevealSection id="projects" className="px-6 py-16">
-      <Heading level={2}>Projects</Heading>
-      <div className="mt-8 flex flex-col gap-10">
-        {GROUPS.map((group) => {
-          const items = projects.filter(group.match);
-          if (items.length === 0) return null;
-
-          return (
-            <div key={group.title}>
-              <Heading level={3}>{group.title}</Heading>
-              <div className="mt-4 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {items.map((project) => (
-                  <ProjectCard key={project.slug} project={project} />
-                ))}
-              </div>
-            </div>
-          );
-        })}
+      {/* "Selected work" rather than a status taxonomy: whether a contract is
+          still running says nothing about whether the work is worth reading. */}
+      <Heading level={2}>Selected work</Heading>
+      <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project) => (
+          <ProjectCard key={project.slug} project={project} />
+        ))}
       </div>
+      {remaining > 0 && (
+        <Link
+          to="/projects"
+          className="focus-ring mt-8 inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-medium text-blue-700 hover:underline dark:text-blue-300"
+        >
+          See all {totalCount} projects
+          <FiArrowRight size={16} aria-hidden="true" />
+        </Link>
+      )}
     </RevealSection>
   );
 }

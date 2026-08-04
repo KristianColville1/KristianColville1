@@ -17,15 +17,17 @@ import type {
   EducationEntry,
   SkillGroup,
   ContactLink,
-  Headline,
 } from '../../content/types';
 
 type HomeTemplateProps = {
-  headline: Headline;
+  headline: string;
+  headlineSupport: string;
+  identity: { name: string; role: string; disciplines: string[] };
   about: string;
   skillGroups: SkillGroup[];
   skillsSummary: string;
-  projects: Project[];
+  featuredProjects: Project[];
+  projectCount: number;
   experienceEntries: ExperienceEntry[];
   educationEntries: EducationEntry[];
   certifications: Certification[];
@@ -35,10 +37,13 @@ type HomeTemplateProps = {
 
 export function HomeTemplate({
   headline,
+  headlineSupport,
+  identity,
   about,
   skillGroups,
   skillsSummary,
-  projects,
+  featuredProjects,
+  projectCount,
   experienceEntries,
   educationEntries,
   certifications,
@@ -48,12 +53,16 @@ export function HomeTemplate({
   return (
     <div data-testid="home-page">
       <Navbar />
-      <Hero headline={headline} />
+      <Hero headline={headline} headlineSupport={headlineSupport} identity={identity} />
       <About about={about} />
       <SkillsGrid groups={skillGroups} summary={skillsSummary} />
-      <ProjectsSection projects={projects} />
-      <ExperienceTimeline entries={experienceEntries} />
-      <EducationTimeline entries={educationEntries} />
+      <ProjectsSection projects={featuredProjects} totalCount={projectCount} />
+      {/* Two short columns rather than two half-empty full-width sections. Each
+          keeps its own id so the nav anchors still land on the right one. */}
+      <div className="mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-2">
+        <ExperienceTimeline entries={experienceEntries} />
+        <EducationTimeline entries={educationEntries} />
+      </div>
       <CertificationsSection certifications={certifications} />
       <AchievementsSection achievements={achievements} />
       <ContactSection links={contactLinks} />

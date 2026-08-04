@@ -2,7 +2,6 @@ import { FiMail, FiPhone, FiGithub, FiLinkedin, FiLink } from 'react-icons/fi';
 import type { IconType } from 'react-icons';
 import { Heading } from '../atoms/Heading';
 import { RevealSection } from '../atoms/RevealSection';
-import { SectionBackdrop } from '../atoms/SectionBackdrop';
 import { isExternalLink } from '../../lib/links';
 import type { ContactLink } from '../../content/types';
 
@@ -19,10 +18,9 @@ const ICONS: Record<string, IconType> = {
 
 export function ContactSection({ links }: ContactSectionProps) {
   return (
-    <RevealSection id="contact" className="relative isolate overflow-hidden px-6 py-24 text-center">
-      <SectionBackdrop src="/images/abstract-backdrop.jpg" flipY />
+    <RevealSection id="contact" className="bg-neutral-50 px-6 py-24 text-center dark:bg-neutral-900/40">
       <Heading level={2}>Get in touch</Heading>
-      <div className="mt-6 flex flex-wrap justify-center gap-6">
+      <div className="mt-6 flex flex-wrap justify-center gap-x-4 gap-y-2">
         {links.map((link) => {
           const isExternal = isExternalLink(link.href);
           const Icon = ICONS[link.label] ?? FiLink;
@@ -32,7 +30,7 @@ export function ContactSection({ links }: ContactSectionProps) {
               href={link.href}
               target={isExternal ? '_blank' : undefined}
               rel={isExternal ? 'noopener noreferrer' : undefined}
-              className="inline-flex items-center gap-2 text-blue-700 hover:underline dark:text-blue-400"
+              className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-md px-3 text-blue-700 hover:underline dark:text-blue-300"
             >
               <Icon aria-hidden="true" />
               {link.label}

@@ -1,6 +1,5 @@
 import { Heading } from '../atoms/Heading';
 import { RevealSection } from '../atoms/RevealSection';
-import { SectionBackdrop } from '../atoms/SectionBackdrop';
 import type { ExperienceEntry } from '../../content/types';
 
 type ExperienceTimelineProps = {
@@ -9,8 +8,7 @@ type ExperienceTimelineProps = {
 
 export function ExperienceTimeline({ entries }: ExperienceTimelineProps) {
   return (
-    <RevealSection id="experience" className="relative isolate overflow-hidden px-6 py-24">
-      <SectionBackdrop src="/images/abstract-backdrop.jpg" flipX flipY />
+    <RevealSection id="experience" className="px-6 py-16">
       <Heading level={2}>Experience</Heading>
       <ol className="mt-8 space-y-6 border-l border-neutral-200 pl-6 dark:border-neutral-800">
         {entries.map((entry) => (

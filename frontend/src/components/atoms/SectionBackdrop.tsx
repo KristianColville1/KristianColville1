@@ -5,9 +5,17 @@ type SectionBackdropProps = {
   src: string;
   flipX?: boolean;
   flipY?: boolean;
+  /** Hero treatment: carries the image at full strength and runs to the top
+      edge, rather than sitting back as a quiet section texture. */
+  strong?: boolean;
 };
 
-export function SectionBackdrop({ src, flipX = false, flipY = false }: SectionBackdropProps) {
+export function SectionBackdrop({
+  src,
+  flipX = false,
+  flipY = false,
+  strong = false,
+}: SectionBackdropProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
@@ -35,11 +43,19 @@ export function SectionBackdrop({ src, flipX = false, flipY = false }: SectionBa
           style={prefersReducedMotion ? undefined : { y, scale }}
           // Oversized and offset so the drift never exposes an edge: at maximum
           // travel the image still overhangs the section top and bottom.
-          className="absolute inset-x-0 top-[-35%] h-[170%] w-full object-cover opacity-20 will-change-transform dark:opacity-[0.14]"
+          className={`absolute inset-x-0 top-[-35%] h-[170%] w-full object-cover will-change-transform ${
+            strong ? 'opacity-35 dark:opacity-30' : 'opacity-20 dark:opacity-[0.14]'
+          }`}
         />
       </div>
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent dark:from-neutral-950" />
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent dark:from-neutral-950" />
+      {!strong && (
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent dark:from-neutral-950" />
+      )}
+      <div
+        className={`absolute inset-x-0 bottom-0 bg-gradient-to-t from-white to-transparent dark:from-neutral-950 ${
+          strong ? 'h-32' : 'h-24'
+        }`}
+      />
     </div>
   );
 }

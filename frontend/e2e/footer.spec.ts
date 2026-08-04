@@ -19,16 +19,14 @@ test('footer lists contact details and the current copyright year', async ({ pag
   await expect(footer.getByText(`© ${year} Kristian Colville. All rights reserved.`)).toBeVisible();
 });
 
-test('hero headline exposes the full sentence to assistive tech while it animates', async ({ page }) => {
+test('the hero headline says what the work actually is, and holds still', async ({ page }) => {
   await page.goto('/');
 
   const heading = page.locator('#hero').getByRole('heading', { level: 1 });
-  await expect(heading).toContainText('Software engineer who turns');
-  await expect(heading).toContainText('technical problems into reliable systems.');
+  await expect(heading).toContainText('streaming and recording infrastructure behind live video');
 
-  // The word cycles, so the visible text should change on its own.
+  // It used to cycle a word on a timer; the text must now be stable.
   const first = await heading.innerText();
-  await expect
-    .poll(async () => (await heading.innerText()) !== first, { timeout: 8000 })
-    .toBe(true);
+  await page.waitForTimeout(1500);
+  expect(await heading.innerText()).toBe(first);
 });

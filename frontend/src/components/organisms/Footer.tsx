@@ -24,10 +24,12 @@ export function Footer({ links }: FooterProps) {
             <p className="mt-1 text-sm text-neutral-400">Software Engineer · Ireland</p>
           </div>
 
-          <nav aria-label="Contact" className="flex flex-col gap-3">
-            <h2 className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-neutral-500">
+          <nav aria-label="Contact" className="flex flex-col gap-1">
+            {/* A visual group label, not a section heading — as an <h2> it sat
+                as a sibling of "Get in touch" and read as a second section. */}
+            <p className="mb-1 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-neutral-400">
               Contact
-            </h2>
+            </p>
             {links.map((link) => {
               const isExternal = isExternalLink(link.href);
               const Icon = ICONS[link.label] ?? FiLink;
@@ -37,7 +39,7 @@ export function Footer({ links }: FooterProps) {
                   href={link.href}
                   target={isExternal ? '_blank' : undefined}
                   rel={isExternal ? 'noopener noreferrer' : undefined}
-                  className="inline-flex items-center gap-2 text-sm text-neutral-300 transition-colors hover:text-blue-400"
+                  className="focus-ring inline-flex min-h-11 w-fit items-center gap-2 rounded-md text-sm text-neutral-300 transition-colors hover:text-blue-300"
                 >
                   <Icon aria-hidden="true" />
                   {link.label}
@@ -48,7 +50,7 @@ export function Footer({ links }: FooterProps) {
         </div>
 
         <div className="mt-10 border-t border-neutral-800 pt-6">
-          <p className="text-sm text-neutral-500">
+          <p className="text-sm text-neutral-400">
             © {new Date().getFullYear()} Kristian Colville. All rights reserved.
           </p>
         </div>

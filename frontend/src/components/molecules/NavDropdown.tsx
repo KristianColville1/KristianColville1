@@ -6,9 +6,10 @@ type NavDropdownProps = {
   label: string;
   sections: { id: string; label: string }[];
   activeId: string;
+  hrefBase?: string;
 };
 
-export function NavDropdown({ label, sections, activeId }: NavDropdownProps) {
+export function NavDropdown({ label, sections, activeId, hrefBase = '' }: NavDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const containsActive = sections.some((section) => section.id === activeId);
@@ -37,10 +38,10 @@ export function NavDropdown({ label, sections, activeId }: NavDropdownProps) {
         type="button"
         onClick={() => setIsOpen((open) => !open)}
         aria-expanded={isOpen}
-        className={`inline-flex cursor-pointer items-center gap-1 text-sm font-medium transition-colors ${
+        className={`focus-ring inline-flex cursor-pointer items-center gap-1 text-sm font-medium transition-colors ${
           containsActive
-            ? 'text-blue-700 dark:text-blue-400'
-            : 'text-neutral-600 hover:text-blue-700 dark:text-neutral-300 dark:hover:text-blue-400'
+            ? 'text-blue-700 dark:text-blue-300'
+            : 'text-neutral-600 hover:text-blue-700 dark:text-neutral-300 dark:hover:text-blue-300'
         }`}
       >
         {label}
@@ -55,7 +56,7 @@ export function NavDropdown({ label, sections, activeId }: NavDropdownProps) {
           {sections.map((section) => (
             <NavLink
               key={section.id}
-              href={`#${section.id}`}
+              href={`${hrefBase}#${section.id}`}
               label={section.label}
               active={activeId === section.id}
               onClick={() => setIsOpen(false)}

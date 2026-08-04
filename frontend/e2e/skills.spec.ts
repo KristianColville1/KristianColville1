@@ -1,18 +1,18 @@
 import { test, expect } from '@playwright/test';
 
-test('clicking a skill card opens an offcanvas with usage and proficiency detail', async ({ page }) => {
+test('skills are listed plainly, with nothing to click and no self-rating', async ({ page }) => {
   await page.goto('/');
+  const skills = page.locator('#skills');
 
-  await page.getByRole('button', { name: 'Languages' }).click();
+  await expect(skills.getByRole('heading', { name: 'Languages' })).toBeVisible();
+  await expect(skills.getByText('JavaScript', { exact: true })).toBeVisible();
 
-  const panel = page.getByRole('dialog', { name: 'Languages' });
-  await expect(panel).toBeVisible();
-  await expect(panel.getByRole('heading', { name: 'JavaScript' })).toBeVisible();
-  await expect(panel.getByText('Core language for both React front ends and Node.js services.')).toBeVisible();
-  await expect(panel.getByLabel('Proficiency: Proficient').first()).toBeVisible();
-
-  await panel.getByRole('button', { name: 'Close panel' }).click();
-  await expect(panel).not.toBeVisible();
+  // The cards used to be buttons opening a panel of self-assessed levels.
+  await expect(skills.getByRole('button')).toHaveCount(0);
+  await expect(skills.getByRole('dialog')).toHaveCount(0);
+  for (const level of ['Familiar', 'Comfortable', 'Proficient', 'Expert']) {
+    await expect(skills.getByText(level, { exact: true })).toHaveCount(0);
+  }
 });
 
 test('skills section explains the backend/frontend focus in prose', async ({ page }) => {

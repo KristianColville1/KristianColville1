@@ -10,4 +10,4 @@ export default meta;
 
 type Story = StoryObj<typeof SkillGroupCard>;
 
-export const Default: Story = { args: { group: skillGroups[0], onOpen: () => {} } };
+export const Default: Story = { args: { group: skillGroups[0] } };
