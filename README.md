@@ -6,4 +6,4 @@ My professional work includes real-time streaming, distributed services, network
 
 Most professional work is maintained in private company repositories, so this profile focuses on independent projects, technical experiments and academic work completed alongside my career.
 
-[![LeetCode progress](https://leetcard.jacoblin.cool/kristiancolville1?theme=dark&font=Inter&ext=heatmap)](https://leetcode.com/u/kristiancolville1/)
+![LeetCode Stats](https://leetcard.jacoblin.cool/kristiancolville1?theme=forest&font=Ubuntu&ext=heatmap)
